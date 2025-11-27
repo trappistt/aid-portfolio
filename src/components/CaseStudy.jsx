@@ -223,84 +223,46 @@ const projects = [
   },
   {
     id: 4,
-    title: 'Modern Checkout Flow',
-    category: 'Payment Experience',
-    description: 'High-performance, secure checkout experience built with Stripe Elements. Features optimistic UI updates, comprehensive error handling, and mobile-first design optimized for conversion.',
-    tags: ['React', 'TypeScript', 'Stripe', 'Tailwind CSS'],
+    title: 'x402 React Component Library',
+    category: 'Open Source Library',
+    description: 'A React component library for Coinbase x402 payments. Enables seamless integration of HTTP 402 payment protocol for micropayments, API monetization, and on-chain payments with USDC.',
+    tags: ['React', 'TypeScript', 'Coinbase x402', 'Web3'],
     year: '2025',
     number: '04',
-    link: '#',
-    caseStudy: '/case-study/modern-checkout-flow',
-    image: '/projects/modern-checkout-flow/hero-image.jpg', // Add your image here
+    link: 'https://x402-react.vercel.app/',
+    caseStudy: '/case-study/x402-react-library',
+    image: '/projects/x402/x402.png',
     caseStudyContent: {
-      overview: 'A modern, high-performance checkout flow designed to maximize conversion rates while ensuring security and excellent user experience. Built with Stripe Elements integration, the checkout features optimistic UI updates, comprehensive error handling, and is optimized for performance with sub-100ms interaction times. The solution prioritizes accessibility, mobile-first design, and seamless payment processing.',
-      challenge: 'Creating a checkout experience that balances speed, security, and user experience is critical for e-commerce success. The challenge was to build a checkout flow that loads quickly, handles errors gracefully, provides clear feedback, and maintains the highest security standards while supporting multiple payment methods and ensuring accessibility compliance.',
-      solution: 'Developed a modern checkout flow using React and TypeScript for type safety and maintainability. Integrated Stripe Elements for secure payment processing with PCI compliance. Implemented optimistic UI updates for instant feedback, comprehensive error handling with retry logic, and performance optimizations including code splitting, lazy loading, and Web Workers for heavy computations. Built with mobile-first responsive design and full WCAG AA accessibility compliance.',
+      overview: 'x402 React is an open-source React component library that simplifies integration of Coinbase x402 payment protocol into web applications. The library enables developers to easily implement HTTP 402 payments for micropayments, API monetization, and on-chain USDC transactions with a simple, declarative API.',
+      challenge: 'The Coinbase x402 protocol is powerful but requires complex integration work. Developers need to handle payment requests, manage payment state, handle network switching, and integrate with facilitators. The challenge was to create a developer-friendly React library that abstracts away this complexity while maintaining flexibility and type safety.',
+      solution: 'Built a comprehensive React component library using TypeScript for full type safety. Created reusable components like X402Button, X402Provider, and custom hooks like useX402Payment for programmatic payments. The library handles payment state management, network switching (Base, Solana), payment retry logic, and provides excellent developer experience with comprehensive documentation and examples.',
       process: [
-        'Conducted user research and analyzed checkout abandonment patterns',
-        'Designed checkout flow with focus on conversion optimization',
-        'Integrated Stripe Elements for secure payment processing',
-        'Implemented optimistic UI updates for instant user feedback',
-        'Built comprehensive error handling with retry mechanisms',
-        'Optimized performance with code splitting and lazy loading',
-        'Implemented Web Workers for payment validation and processing',
-        'Ensured WCAG AA accessibility compliance throughout',
-        'Conducted A/B testing for checkout flow variations',
-        'Performed security audit and PCI compliance review',
-        'Optimized Core Web Vitals (LCP, FID, CLS)',
-        'Tested across devices and browsers for compatibility'
+        'Researched Coinbase x402 protocol and HTTP 402 payment flow',
+        'Designed component API with TypeScript for type safety',
+        'Built X402Provider context for global payment state management',
+        'Created X402Button component with customizable payment flows',
+        'Implemented useX402Payment hook for programmatic payments',
+        'Added support for multiple networks (Base, Solana)',
+        'Built payment retry logic and error handling',
+        'Created comprehensive documentation and examples',
+        'Published to npm and deployed demo site to Vercel',
+        'Open-sourced on GitHub for community contributions'
       ],
       results: [
-        'Sub-100ms interaction response times achieved',
-        'Improved conversion rate through optimized UX',
-        '100% WCAG AA accessibility compliance',
-        'Zero security incidents with proper PCI considerations',
-        'Mobile-first design with 60% mobile conversion rate',
-        'Comprehensive error handling reducing failed transactions',
-        'Optimistic UI updates providing instant feedback',
-        'Performance scores: 95+ Lighthouse score'
+        'Successfully published open-source React library',
+        'Simplified x402 integration for React developers',
+        'Type-safe API with full TypeScript support',
+        'Comprehensive documentation and live examples',
+        'Support for multiple blockchain networks',
+        'Active development and community engagement',
+        'Available on npm for easy installation',
+        'Live demo site showcasing all features'
       ],
       images: [
-        // Add preview images here
-        // '/projects/modern-checkout-flow/checkout-desktop.jpg',
-        // '/projects/modern-checkout-flow/checkout-mobile.jpg',
-        // '/projects/modern-checkout-flow/error-handling.jpg',
-        // '/projects/modern-checkout-flow/payment-methods.jpg',
+        '/projects/x402/x402.png',
+        '/projects/x402/x402-1.png',
+        '/projects/x402/x402-2.png',
       ]
-    }
-  },
-  {
-    id: 6,
-    title: 'Real-Time Chat App',
-    category: 'Web Application',
-    description: 'WebSocket-based chat application with message encryption. Features include group chats, file sharing, and real-time notifications.',
-    tags: ['React', 'Node.js', 'WebSocket'],
-    year: '2023',
-    number: '06',
-    link: '#',
-    caseStudy: '/case-study/real-time-chat-app',
-    caseStudyContent: {
-      overview: 'A real-time chat application built with WebSocket technology, enabling instant messaging, group conversations, file sharing, and secure communication. Designed for both personal and team collaboration.',
-      challenge: 'Building a real-time chat application that handles thousands of concurrent connections, ensures message delivery, provides end-to-end encryption, and maintains low latency for a seamless user experience.',
-      solution: 'Developed a WebSocket-based architecture using Node.js for the backend and React for the frontend. Implemented message queuing, encryption, and efficient state management. Added features like typing indicators, read receipts, and file sharing.',
-      process: [
-        'Designed WebSocket architecture and message flow',
-        'Implemented Node.js backend with WebSocket server',
-        'Built React frontend with real-time state management',
-        'Added end-to-end encryption for messages',
-        'Implemented file upload and sharing system',
-        'Created notification system for new messages',
-        'Optimized for scalability and performance',
-        'Conducted security audits and testing'
-      ],
-      results: [
-        'Supports 10,000+ concurrent connections',
-        'Message delivery latency under 50ms',
-        'Zero data breaches since launch',
-        '99.9% uptime with reliable message delivery',
-        'User base grew to 50K+ active users'
-      ],
-      images: []
     }
   },
 ]
