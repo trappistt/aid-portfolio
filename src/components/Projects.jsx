@@ -251,22 +251,6 @@ export default function Projects() {
             </button>
           </div>
 
-          {/* Navigation Dots - Right Side */}
-          <div className="fixed right-8 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-50 hidden lg:flex">
-            {projects.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => scrollToSlide(index)}
-                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? 'bg-black w-2 h-2'
-                    : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-
           {/* Horizontal Scroll Container */}
           <div
             ref={containerRef}

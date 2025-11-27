@@ -4,11 +4,13 @@ import Blog from './pages/Blog.jsx'
 import CaseStudy from './components/CaseStudy.jsx'
 import BlogPost from './components/BlogPost.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
+import ScrollProgress from './components/ScrollProgress.jsx'
 
 function App() {
   return (
     <>
       <ScrollToTop />
+      <ScrollProgress />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blog" element={<Blog />} />

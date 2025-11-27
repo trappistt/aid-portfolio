@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
 import { useEffect } from 'react'
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { Button } from './ui/button'
+import Navigation from './Navigation.jsx'
+import Footer from './Footer.jsx'
 import { useSmoothScroll } from '../hooks/useSmoothScroll'
 
 const blogs = [
@@ -86,17 +88,23 @@ export default function BlogPost() {
   // Enable smooth scroll
   useSmoothScroll()
 
-  // No redirect needed - we'll show summary with external link
+  useEffect(() => {
+    // Scroll to top on mount
+    window.scrollTo(0, 0)
+  }, [])
 
   if (!blog) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center px-6">
-        <div className="text-center">
-          <h1 className="text-4xl font-medium mb-4">Blog Post Not Found</h1>
-          <p className="text-gray-600 mb-8">The blog post you're looking for doesn't exist.</p>
-          <Button asChild>
-            <Link to="/blog">Back to Blog</Link>
-          </Button>
+      <div className="min-h-screen bg-white">
+        <Navigation />
+        <div className="flex items-center justify-center min-h-screen px-6 pt-16">
+          <div className="text-center">
+            <h1 className="text-4xl font-medium mb-4">Blog Post Not Found</h1>
+            <p className="text-gray-600 mb-8">The blog post you're looking for doesn't exist.</p>
+            <Button asChild>
+              <Link to="/blog">Back to Blog</Link>
+            </Button>
+          </div>
         </div>
       </div>
     )
@@ -113,36 +121,8 @@ export default function BlogPost() {
 
   return (
     <div className="min-h-screen bg-white text-black">
-      {/* Header */}
-      <motion.header
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="border-b border-gray-200 sticky top-0 bg-white/80 backdrop-blur-md z-40"
-      >
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="flex items-center justify-between h-16">
-            <Link
-              to="/"
-              className="hover:opacity-70 transition-opacity"
-            >
-              <img 
-                src="/Alireza_Iman_Logo.png" 
-                alt="Alireza Iman" 
-                className="h-8 w-auto"
-              />
-            </Link>
-            <Link
-              to="/blog"
-              className="text-sm text-gray-600 hover:text-black transition-colors"
-            >
-              ← Back to Blog
-            </Link>
-          </div>
-        </div>
-      </motion.header>
-
-      <main className="relative">
+      <Navigation />
+      <main className="relative pt-16">
         {/* Hero Section */}
         <section className="py-16 sm:py-24 px-6 sm:px-8 lg:px-12 border-b border-gray-200">
           <div className="max-w-4xl mx-auto">
@@ -223,6 +203,7 @@ export default function BlogPost() {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   )
 }

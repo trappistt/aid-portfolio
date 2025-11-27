@@ -30,28 +30,49 @@ export default function About() {
   return (
     <section ref={ref} id="about" className="relative py-24 sm:py-32 px-6 sm:px-8 lg:px-12">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          style={{ y, opacity }}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-12 sm:mb-16"
-        >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium mb-8 sm:mb-12 text-black tracking-tight">
-            About
-          </h2>
+        {/* Header with About text on left and image on right */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 mb-16 sm:mb-24">
+          {/* About Summary - Left */}
+          <motion.div
+            style={{ y, opacity }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col justify-center"
+          >
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium mb-8 sm:mb-12 text-black tracking-tight">
+              About
+            </h2>
+            <div className="space-y-6">
+              <p className="text-xl sm:text-2xl text-gray-700 leading-relaxed font-normal">
+                I'm a full stack creative engineer with 5+ years of experience mainly in frontend development and Visual/UI design.
+              </p>
+              <p className="text-lg text-gray-600 leading-relaxed font-normal">
+                I worked at IKEA from 2019 to 2025 in various design and development roles, with the latest one being Front-end developer. I've also worked on several freelance projects for clients, blending design, code, and emerging technology to build experiences that feel effortless on the surface and highly engineered underneath.
+              </p>
+            </div>
+          </motion.div>
 
-          <div className="max-w-3xl space-y-6">
-            <p className="text-xl sm:text-2xl text-gray-700 leading-relaxed font-normal">
-              I'm a full stack creative engineer with 5+ years of experience mainly in frontend development and Visual/UI design.
-            </p>
-            <p className="text-lg text-gray-600 leading-relaxed font-normal">
-              I worked at IKEA from 2019 to 2025 in various design and development roles, with the latest one being Front-end developer. I've also worked on several freelance projects for clients, blending design, code, and emerging technology to build experiences that feel effortless on the surface and highly engineered underneath.
-            </p>
-          </div>
-        </motion.div>
+          {/* Profile Image - Right */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex items-center justify-center lg:justify-end"
+          >
+            <div className="w-full max-w-md aspect-square">
+              <img
+                src="/Linkedin.png"
+                alt="Profile"
+                className="w-full h-full rounded-2xl object-cover border border-gray-200 shadow-sm"
+              />
+            </div>
+          </motion.div>
+        </div>
 
+        {/* Services and Skills - Below */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

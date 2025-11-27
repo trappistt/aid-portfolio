@@ -29,13 +29,12 @@ const blogs = [
 
 export default function Blogs() {
   return (
-    <section id="blog" className="relative py-24 sm:py-32 px-6 sm:px-8 lg:px-12 bg-white">
+    <section id="blog" className="relative py-24 sm:py-32 px-6 sm:px-8 lg:px-12 bg-white min-h-screen">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="mb-12 sm:mb-16"
         >
@@ -54,8 +53,8 @@ export default function Blogs() {
               key={blog.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group"
             >
               {blog.externalLink ? (

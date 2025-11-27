@@ -3,7 +3,9 @@ import Navigation from '../components/Navigation.jsx'
 import Hero from '../components/Hero.jsx'
 import Projects from '../components/Projects.jsx'
 import BlogPreview from '../components/BlogPreview.jsx'
+import SpotifyPlaylist from '../components/SpotifyPlaylist.jsx'
 import About from '../components/About.jsx'
+import Logos from '../components/Logos.jsx'
 import Footer from '../components/Footer.jsx'
 import { useSmoothScroll } from '../hooks/useSmoothScroll'
 
@@ -23,6 +25,8 @@ export default function Home() {
         <Projects />
         <BlogPreview />
         <About />
+        <SpotifyPlaylist />
+        <Logos />
         <Footer />
       </motion.main>
     </div>

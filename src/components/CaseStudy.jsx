@@ -2,6 +2,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { Button } from './ui/button'
+import Navigation from './Navigation.jsx'
+import Footer from './Footer.jsx'
 import { useSmoothScroll } from '../hooks/useSmoothScroll'
 import * as simpleIcons from 'simple-icons'
 
@@ -330,13 +332,16 @@ export default function CaseStudy() {
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center px-6">
-        <div className="text-center">
-          <h1 className="text-4xl font-medium mb-4">Case Study Not Found</h1>
-          <p className="text-gray-600 mb-8">The case study you're looking for doesn't exist.</p>
-          <Button asChild>
-            <Link to="/">Back to Home</Link>
-          </Button>
+      <div className="min-h-screen bg-white">
+        <Navigation />
+        <div className="flex items-center justify-center min-h-screen px-6 pt-16">
+          <div className="text-center">
+            <h1 className="text-4xl font-medium mb-4">Case Study Not Found</h1>
+            <p className="text-gray-600 mb-8">The case study you're looking for doesn't exist.</p>
+            <Button asChild>
+              <Link to="/">Back to Home</Link>
+            </Button>
+          </div>
         </div>
       </div>
     )
@@ -346,36 +351,9 @@ export default function CaseStudy() {
 
   return (
     <div className="min-h-screen bg-white text-black">
-      {/* Header */}
-      <motion.header
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="border-b border-gray-200 sticky top-0 bg-white/80 backdrop-blur-md z-40"
-      >
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="flex items-center justify-between h-16">
-            <Link
-              to="/"
-              className="hover:opacity-70 transition-opacity"
-            >
-              <img 
-                src="/Alireza_Iman_Logo.png" 
-                alt="Alireza Iman" 
-                className="h-8 w-auto"
-              />
-            </Link>
-            <Link
-              to="/#work"
-              className="text-sm text-gray-600 hover:text-black transition-colors"
-            >
-              ← Back to Work
-            </Link>
-          </div>
-        </div>
-      </motion.header>
+      <Navigation />
 
-      <main className="relative">
+      <main className="relative pt-16">
         {/* Hero Section */}
         <section className="py-16 sm:py-24 px-6 sm:px-8 lg:px-12 border-b border-gray-200">
           <div className="max-w-4xl mx-auto">
@@ -616,6 +594,7 @@ export default function CaseStudy() {
           </motion.div>
         )}
       </AnimatePresence>
+      <Footer />
     </div>
   )
 }
