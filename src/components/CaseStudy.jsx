@@ -4,7 +4,7 @@ import { useParams, Link } from 'react-router-dom'
 import { Button } from './ui/button'
 import Navigation from './Navigation.jsx'
 import Footer from './Footer.jsx'
-import { useSmoothScroll } from '../hooks/useSmoothScroll'
+import { useSmoothScroll, getLenisInstance } from '../hooks/useSmoothScroll'
 import * as simpleIcons from 'simple-icons'
 
 // Map tech stack names to simple-icons property names
@@ -274,6 +274,16 @@ export default function CaseStudy() {
 
   // Enable smooth scroll
   useSmoothScroll()
+
+  // Scroll to top when component mounts or slug changes
+  useEffect(() => {
+    const lenis = getLenisInstance()
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true })
+    } else {
+      window.scrollTo(0, 0)
+    }
+  }, [slug])
 
   // Close modal on ESC key
   useEffect(() => {
