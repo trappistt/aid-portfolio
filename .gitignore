@@ -33,3 +33,12 @@ dist-ssr
 build
 *.tsbuildinfo
 
+# Font files
+*.otf
+*.ttf
+*.woff
+*.woff2
+*.eot
+PP Neue Montreal - Free for Personal Use v2.6/
+
+
