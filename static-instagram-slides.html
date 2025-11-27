@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Instagram Slides</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @font-face {
+            font-family: 'PP Neue Montreal';
+            src: url('PP Neue Montreal - Free for Personal Use v2.6/OTF/PPNeueMontreal-Book.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'PP Neue Montreal';
+            src: url('PP Neue Montreal - Free for Personal Use v2.6/OTF/PPNeueMontreal-Medium.otf') format('opentype');
+            font-weight: 500;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'PP Neue Montreal';
+            src: url('PP Neue Montreal - Free for Personal Use v2.6/OTF/PPNeueMontreal-Bold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'PP Neue Montreal';
+            src: url('PP Neue Montreal - Free for Personal Use v2.6/OTF/PPNeueMontreal-Thin.otf') format('opentype');
+            font-weight: 300;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'PP Neue Montreal';
+            src: url('PP Neue Montreal - Free for Personal Use v2.6/OTF/PPNeueMontreal-Italic.otf') format('opentype');
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        body { 
+            font-family: 'PP Neue Montreal', sans-serif; 
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="bg-[#030303] text-zinc-100 h-screen w-screen overflow-hidden antialiased selection:bg-white selection:text-black">
+
+    <!-- Fixed Header Label -->
+    <div class="fixed top-8 left-8 z-50 mix-blend-difference">
+        <div class="bg-white/10 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded text-[10px] font-medium tracking-widest uppercase text-white/90">
+            Portfolio
+        </div>
+    </div>
+
+    <!-- Fixed Top Right Controls -->
+    <div class="fixed top-8 right-8 z-50 flex gap-2">
+        <button class="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center hover:bg-zinc-800 transition-colors text-zinc-400">
+            <i data-lucide="chevron-up" class="w-4 h-4"></i>
+        </button>
+        <button class="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center hover:bg-zinc-800 transition-colors text-zinc-400">
+            <i data-lucide="filter" class="w-3 h-3"></i>
+        </button>
+    </div>
+
+    <!-- Fixed Pagination Dots -->
+    <div class="fixed right-8 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-50">
+        <div class="w-1.5 h-1.5 rounded-full bg-white transition-colors cursor-pointer" onclick="scrollToSlide(0)"></div>
+        <div class="w-1.5 h-1.5 rounded-full bg-zinc-800 hover:bg-zinc-600 transition-colors cursor-pointer" onclick="scrollToSlide(1)"></div>
+        <div class="w-1.5 h-1.5 rounded-full bg-zinc-800 hover:bg-zinc-600 transition-colors cursor-pointer" onclick="scrollToSlide(2)"></div>
+        <div class="w-1.5 h-1.5 rounded-full bg-zinc-800 hover:bg-zinc-600 transition-colors cursor-pointer" onclick="scrollToSlide(3)"></div>
+        <div class="w-1.5 h-1.5 rounded-full bg-zinc-800 hover:bg-zinc-600 transition-colors cursor-pointer" onclick="scrollToSlide(4)"></div>
+    </div>
+
+    <!-- Main Scroll Container -->
+    <main id="main-scroll" class="h-full w-full overflow-y-scroll snap-y snap-mandatory scroll-smooth no-scrollbar">
+
+        <!-- SLIDE 1: Intro -->
+        <section class="h-screen w-full snap-start flex items-center justify-center p-6">
+            <div class="relative w-full max-w-[420px] aspect-[3/4] bg-zinc-900 rounded-sm overflow-hidden shadow-2xl border border-white/5 group">
+                <!-- Background Gradient -->
+                <div class="absolute inset-0 bg-gradient-to-br from-zinc-800/50 via-zinc-900 to-black"></div>
+                
+                <!-- Noise Overlay -->
+                <div class="absolute inset-0 opacity-[0.08]" style="background-image: url('https://grainy-gradients.vercel.app/noise.svg');"></div>
+                
+                <!-- Content -->
+                <div class="relative h-full flex flex-col justify-between p-8 z-10">
+                    <!-- Card Header -->
+                    <div class="flex justify-between items-center text-[10px] tracking-[0.2em] text-zinc-400 font-mono uppercase">
+                        <span>Welcome</span>
+                        <span>01 / 04</span>
+                    </div>
+
+                    <!-- Main Body -->
+                    <div class="flex flex-col gap-6 mt-12">
+                        <div class="w-12 h-12 bg-white/10 backdrop-blur rounded flex items-center justify-center border border-white/10">
+                            <i data-lucide="sparkles" class="w-5 h-5 text-white fill-white"></i>
+                        </div>
+                        
+                        <div>
+                            <h1 class="text-6xl font-medium tracking-tighter text-white leading-[0.9]">
+                                Hello, I'm
+                            </h1>
+                            <h2 class="text-6xl font-medium tracking-tighter text-zinc-500 leading-[0.9] mt-1">
+                                [Your Name]
+                            </h2>
+                        </div>
+
+                        <p class="text-lg text-zinc-300 font-light leading-relaxed max-w-[90%] mt-4">
+                            Creative developer crafting digital experiences with code, design, and innovation.
+                        </p>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="mt-auto pt-8">
+                        <div class="w-full h-px bg-white/20 mb-6"></div>
+                        <div class="flex justify-between items-end">
+                            <div class="flex items-center gap-3">
+                                <div class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></div>
+                                <span class="text-xs tracking-[0.2em] font-medium text-zinc-300">AVAILABLE</span>
+                            </div>
+                            <i data-lucide="arrow-down" class="w-5 h-5 text-zinc-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: About -->
+        <section class="h-screen w-full snap-start flex items-center justify-center p-6">
+            <div class="relative w-full max-w-[420px] aspect-[3/4] bg-[#0A0A0A] rounded-sm overflow-hidden shadow-2xl border border-white/5">
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-zinc-900/50 to-zinc-950"></div>
+                <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('https://grainy-gradients.vercel.app/noise.svg');"></div>
+
+                <div class="relative h-full flex flex-col justify-between p-8 z-10">
+                    <div class="flex justify-between items-center text-[10px] tracking-[0.2em] text-zinc-500 font-mono uppercase">
+                        <span>About</span>
+                        <span>02 / 04</span>
+                    </div>
+
+                    <div class="flex-1 flex flex-col justify-center">
+                        <div class="mb-8">
+                            <div class="w-10 h-10 border border-zinc-700 rounded-full flex items-center justify-center mb-6">
+                                <i data-lucide="user" class="w-5 h-5 text-zinc-400"></i>
+                            </div>
+                            <h2 class="text-4xl font-medium tracking-tight text-white mb-2">About</h2>
+                            <h3 class="text-4xl font-medium tracking-tight text-zinc-600">Me</h3>
+                        </div>
+                        <p class="text-lg text-zinc-400 font-light leading-relaxed mb-6">
+                            I'm a passionate developer who loves creating beautiful, functional, and innovative digital experiences. I specialize in modern web technologies and enjoy pushing the boundaries of what's possible.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="px-3 py-1.5 bg-zinc-800/50 border border-zinc-700 rounded text-xs text-zinc-300">React</span>
+                            <span class="px-3 py-1.5 bg-zinc-800/50 border border-zinc-700 rounded text-xs text-zinc-300">Three.js</span>
+                            <span class="px-3 py-1.5 bg-zinc-800/50 border border-zinc-700 rounded text-xs text-zinc-300">WebGL</span>
+                            <span class="px-3 py-1.5 bg-zinc-800/50 border border-zinc-700 rounded text-xs text-zinc-300">Design</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-white/10 flex justify-between items-center">
+                        <span class="text-[10px] tracking-widest text-zinc-500">EXPERIENCE</span>
+                        <i data-lucide="code-2" class="w-4 h-4 text-zinc-500"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: Projects -->
+        <section class="h-screen w-full snap-start flex items-center justify-center p-6">
+            <div class="relative w-full max-w-[420px] aspect-[3/4] bg-[#0A0A0A] rounded-sm overflow-hidden shadow-2xl border border-white/5">
+                <div class="absolute inset-0 opacity-[0.05]" style="background-image: url('https://grainy-gradients.vercel.app/noise.svg');"></div>
+                <div class="absolute top-0 right-0 w-64 h-64 bg-zinc-800/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+
+                <div class="relative h-full flex flex-col justify-between p-8 z-10">
+                    <div class="flex justify-between items-center text-[10px] tracking-[0.2em] text-zinc-500 font-mono uppercase">
+                        <span>Projects</span>
+                        <span>03 / 04</span>
+                    </div>
+
+                    <div class="flex-1 flex flex-col justify-center">
+                        <div class="mb-8">
+                            <div class="w-10 h-10 border border-zinc-700 rounded-full flex items-center justify-center mb-6">
+                                <i data-lucide="folder" class="w-5 h-5 text-zinc-400"></i>
+                            </div>
+                            <h2 class="text-4xl font-medium tracking-tight text-white mb-2">Projects</h2>
+                            <h3 class="text-4xl font-medium tracking-tight text-zinc-600">Portfolio</h3>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="p-4 bg-zinc-900/50 border border-zinc-800 rounded">
+                                <h4 class="text-sm font-medium text-white mb-1">Project One</h4>
+                                <p class="text-xs text-zinc-400">A beautiful web experience built with modern technologies.</p>
+                            </div>
+                            <div class="p-4 bg-zinc-900/50 border border-zinc-800 rounded">
+                                <h4 class="text-sm font-medium text-white mb-1">Project Two</h4>
+                                <p class="text-xs text-zinc-400">Interactive 3D visualization and creative coding.</p>
+                            </div>
+                            <div class="p-4 bg-zinc-900/50 border border-zinc-800 rounded">
+                                <h4 class="text-sm font-medium text-white mb-1">Project Three</h4>
+                                <p class="text-xs text-zinc-400">Innovative design system and component library.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-white/10 flex justify-between items-center">
+                        <span class="text-[10px] tracking-widest text-zinc-500">WORK</span>
+                        <i data-lucide="layers" class="w-4 h-4 text-zinc-500"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: Contact -->
+        <section class="h-screen w-full snap-start flex items-center justify-center p-6">
+            <div class="relative w-full max-w-[420px] aspect-[3/4] bg-white text-black rounded-sm overflow-hidden shadow-2xl border border-white/20 group">
+                <!-- Inverted theme for CTA -->
+                <div class="absolute inset-0 opacity-[0.05]" style="background-image: url('https://grainy-gradients.vercel.app/noise.svg');"></div>
+                
+                <div class="relative h-full flex flex-col justify-between p-8 z-10">
+                    <div class="flex justify-between items-center text-[10px] tracking-[0.2em] text-zinc-400 font-mono uppercase">
+                        <span>Contact</span>
+                        <span>04 / 04</span>
+                    </div>
+
+                    <div class="flex flex-col items-center justify-center text-center mt-8">
+                        <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mb-8 shadow-xl">
+                            <i data-lucide="mail" class="w-6 h-6 text-white"></i>
+                        </div>
+                        
+                        <h2 class="text-5xl font-medium tracking-tighter text-black mb-4">
+                            Let's work<br>together.
+                        </h2>
+                        
+                        <p class="text-zinc-500 font-normal mb-10 max-w-[80%]">
+                            Get in touch to discuss your next project or collaboration.
+                        </p>
+
+                        <div class="w-full space-y-3 mb-6">
+                            <a href="mailto:your.email@example.com" class="block px-8 py-4 bg-black text-white rounded-full text-sm font-medium tracking-wide hover:bg-zinc-800 transition-all w-full flex items-center justify-center gap-2">
+                                <i data-lucide="mail" class="w-4 h-4"></i>
+                                <span>Email Me</span>
+                            </a>
+                            <div class="flex gap-3">
+                                <a href="#" class="flex-1 px-6 py-3 bg-zinc-100 text-black rounded-full text-sm font-medium hover:bg-zinc-200 transition-all flex items-center justify-center gap-2">
+                                    <i data-lucide="github" class="w-4 h-4"></i>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="#" class="flex-1 px-6 py-3 bg-zinc-100 text-black rounded-full text-sm font-medium hover:bg-zinc-200 transition-all flex items-center justify-center gap-2">
+                                    <i data-lucide="linkedin" class="w-4 h-4"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-auto pt-8 border-t border-zinc-100 w-full flex justify-between items-end">
+                        <div class="flex flex-col gap-1">
+                            <span class="text-[9px] uppercase tracking-widest text-zinc-400">Created By</span>
+                            <span class="text-xs font-medium tracking-wide">[Your Name]</span>
+                        </div>
+                        <i data-lucide="command" class="w-5 h-5 text-zinc-300"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        // Update pagination dots on scroll
+        const mainScroll = document.getElementById('main-scroll');
+        const dots = document.querySelectorAll('.fixed.right-8.top-1\\/2 div');
+        
+        function updatePagination() {
+            const scrollPosition = mainScroll.scrollTop;
+            const slideHeight = window.innerHeight;
+            const currentSlide = Math.round(scrollPosition / slideHeight);
+            
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.remove('bg-zinc-800');
+                    dot.classList.add('bg-white');
+                } else {
+                    dot.classList.remove('bg-white');
+                    dot.classList.add('bg-zinc-800');
+                }
+            });
+        }
+
+        mainScroll.addEventListener('scroll', updatePagination);
+
+        function scrollToSlide(index) {
+            const slideHeight = window.innerHeight;
+            mainScroll.scrollTo({
+                top: index * slideHeight,
+                behavior: 'smooth'
+            });
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const currentSlide = Math.round(mainScroll.scrollTop / window.innerHeight);
+            if (e.key === 'ArrowDown' && currentSlide < 3) {
+                scrollToSlide(currentSlide + 1);
+            } else if (e.key === 'ArrowUp' && currentSlide > 0) {
+                scrollToSlide(currentSlide - 1);
+            }
+        });
+    </script>
+
+</body>
+</html>
+
