@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 import Home from './pages/Home.jsx'
 import Blog from './pages/Blog.jsx'
 import CaseStudy from './components/CaseStudy.jsx'
@@ -17,6 +18,7 @@ function App() {
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/case-study/:slug" element={<CaseStudy />} />
       </Routes>
+      <Analytics />
     </>
   )
 }
