@@ -30,10 +30,44 @@ const techIconMap = {
   'WebGL': 'siWebgl',
   'WebSocket': 'siWebsocket',
   'Storybook': 'siStorybook',
+  'Figma': 'siFigma',
+  'Adobe': 'siAdobe',
+  'Adobe After Effects': 'siAdobe',
+  'Photoshop': 'siAdobe',
+  'Illustrator': 'siAdobe',
+  'InDesign': 'siAdobe',
+  'Contentful': 'siContentful',
+}
+
+// Map tech stack names to custom image URLs (for icons not available in simple-icons)
+const customIconUrls = {
+  'Adobe': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Adobe_Creative_Cloud_rainbow_icon.svg/1200px-Adobe_Creative_Cloud_rainbow_icon.svg.png',
+  'Adobe After Effects': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Adobe_After_Effects_CC_icon.svg/500px-Adobe_After_Effects_CC_icon.svg.png',
+  'Photoshop': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/500px-Adobe_Photoshop_CC_icon.svg.png',
+  'Illustrator': 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Adobe_Illustrator_CC_icon.svg/2048px-Adobe_Illustrator_CC_icon.svg.png',
+  'InDesign': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Adobe_InDesign_CC_icon.svg/1051px-Adobe_InDesign_CC_icon.svg.png',
+  'Cursor': 'https://cursor.com/favicon.ico',
 }
 
 // Component to render tech logo
 function TechLogo({ techName }) {
+  // Check for custom image URL first
+  const customUrl = customIconUrls[techName]
+  if (customUrl) {
+    return (
+      <div
+        className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center p-2 hover:border-gray-300 transition-colors overflow-hidden"
+        title={techName}
+      >
+        <img
+          src={customUrl}
+          alt={techName}
+          className="w-6 h-6 object-contain"
+        />
+      </div>
+    )
+  }
+
   const iconKey = techIconMap[techName]
   
   if (!iconKey) {
@@ -83,57 +117,83 @@ function TechLogo({ techName }) {
 const projects = [
   {
     id: 1,
-    title: 'IKEA Comfort Guide',
-    category: 'Web Application',
-    description: 'Interactive comfort guide for the Canadian market helping customers find the perfect mattress, topper, and pillow based on their sleeping preferences and body type.',
-    tags: ['React', 'JavaScript', 'TypeScript', 'Node.js'],
-    year: '2024',
+    title: 'Supp',
+    category: 'Product Design',
+    description: 'Lead designer for an agentic reverse marketplace platform. Designing user experiences that leverage AI agents to transform how users discover and connect with services. Currently in active development.',
+    tags: ['Figma', 'Cursor', 'Product Design'],
+    year: 'June 2025 — Present',
     number: '01',
-    link: 'https://www.ikea.com/addon-app/guida/comfort-guide/web/latest/ca/en/',
-    caseStudy: '/case-study/ikea-comfort-guide',
-    image: '/projects/ikea-comfort-guide/IKEA-comfortguide.png',
+    link: null,
+    caseStudy: '/case-study/supp',
+    image: '/projects/supp/supp.png',
   },
   {
     id: 2,
+    title: 'IKEA Digital Experience',
+    category: 'Product & Web Design',
+    description: 'Led product UX and design strategy for IKEA web and app, building interfaces across merchandising, checkout, navigation, and homepage using analytics-driven insights and GenAI prototyping.',
+    tags: ['Figma', 'Adobe', 'React', 'GitHub', 'Contentful'],
+    year: '2022 — Present',
+    number: '02',
+    link: 'https://www.ikea.com/ca/en/',
+    caseStudy: '/case-study/ikea-digital-experience',
+    image: '/projects/ikea-digital-experience/IKEA.png',
+  },
+  {
+    id: 3,
     title: 'Be Here Streaming Platform',
     category: 'Web App & Mobile',
-    description: 'A comprehensive streaming platform with real-time video/audio streaming, live chat, and clip creation. Available as a web application and native iOS/Android apps.',
-    tags: ['Next.js', 'React', 'TypeScript'],
+    description: 'Designed and developed a comprehensive streaming platform with real-time video/audio streaming, live chat, and clip creation. Focused on creating intuitive interfaces for content creators and viewers across web and native iOS/Android apps.',
+    tags: ['Next.js', 'React', 'TypeScript', 'Figma', 'Cursor'],
     year: '2025',
-    number: '02',
+    number: '03',
     link: 'https://www.thebehere.com/',
     caseStudy: '/case-study/be-here-streaming-platform',
     image: '/projects/be-here/Be-here.png',
   },
   {
-    id: 3,
+    id: 4,
     title: 'Grand Lighting',
     category: 'E-commerce Website',
     description: 'E-commerce platform with automated product management system. Built with WordPress and WooCommerce, featuring LLM-powered automation for product data processing and CIN7 ERP integration.',
     tags: ['WordPress', 'WooCommerce', 'Python', 'JavaScript'],
     year: '2024',
-    number: '03',
+    number: '04',
     link: 'https://www.grandlighting.ca/',
     caseStudy: '/case-study/grand-lighting',
     image: '/projects/grand-lighting/GL.png',
   },
   {
-    id: 4,
+    id: 5,
     title: 'x402 React Component Library',
     category: 'Open Source Library',
     description: 'A React component library for Coinbase x402 payments. Enables seamless integration of HTTP 402 payment protocol for micropayments, API monetization, and on-chain payments with USDC.',
     tags: ['React', 'TypeScript', 'Coinbase x402', 'Web3'],
     year: '2025',
-    number: '04',
+    number: '05',
     link: 'https://x402-react.vercel.app/',
     caseStudy: '/case-study/x402-react-library',
     image: '/projects/x402/x402.png',
+  },
+  {
+    id: 6,
+    title: 'IKEA Visual Design & Motion Media',
+    category: 'Visual Design & Motion Graphics',
+    description: 'Created visual concepts and motion media for IKEA in-store communication, marketing campaigns, and retail design. Designed graphics for offers, seasonal campaigns, and developed new content formats to reach customers effectively.',
+    tags: ['Adobe After Effects', 'Adobe', 'Photoshop', 'Illustrator', 'InDesign'],
+    year: '2019 — 2022',
+    number: '06',
+    link: 'https://www.ikea.com/ca/en/',
+    caseStudy: '/case-study/ikea-visual-design',
+    image: '/projects/ikea-visual-design/ikea-visual-design.png',
+    disabled: true,
   },
 ]
 
 export default function Projects() {
   const containerRef = useRef(null)
   const [currentIndex, setCurrentIndex] = useState(0)
+  const visibleProjects = projects.filter(project => !project.disabled)
 
   useEffect(() => {
     const container = containerRef.current
@@ -145,12 +205,12 @@ export default function Projects() {
       const cardWidth = isMobile ? container.clientWidth : 420
       const gap = 24
       const newIndex = Math.round(scrollLeft / (cardWidth + gap))
-      setCurrentIndex(Math.min(newIndex, projects.length - 1))
+      setCurrentIndex(Math.min(newIndex, visibleProjects.length - 1))
     }
 
     container.addEventListener('scroll', handleScroll)
     return () => container.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [visibleProjects.length])
 
   const scrollToSlide = (index) => {
     const container = containerRef.current
@@ -171,7 +231,7 @@ export default function Projects() {
   }
 
   const handleNext = () => {
-    if (currentIndex < projects.length - 1) {
+    if (currentIndex < visibleProjects.length - 1) {
       scrollToSlide(currentIndex + 1)
     }
   }
@@ -187,7 +247,7 @@ export default function Projects() {
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [currentIndex])
+  }, [currentIndex, visibleProjects.length])
 
   return (
     <section id="work" className="relative py-24 sm:py-32 px-6 sm:px-8 lg:px-12 bg-white overflow-hidden">
@@ -217,9 +277,9 @@ export default function Projects() {
             </button>
             <button
               onClick={handleNext}
-              disabled={currentIndex === projects.length - 1}
+              disabled={currentIndex === visibleProjects.length - 1}
               className={`w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors pointer-events-auto ${
-                currentIndex === projects.length - 1 ? 'opacity-50 cursor-not-allowed' : ''
+                currentIndex === visibleProjects.length - 1 ? 'opacity-50 cursor-not-allowed' : ''
               }`}
               aria-label="Next slide"
             >
@@ -242,10 +302,10 @@ export default function Projects() {
               const cardWidth = isMobile ? e.currentTarget.clientWidth : 420
               const gap = 24
               const newIndex = Math.round(scrollLeft / (cardWidth + gap))
-              setCurrentIndex(Math.min(newIndex, projects.length - 1))
+              setCurrentIndex(Math.min(newIndex, visibleProjects.length - 1))
             }}
           >
-            {projects.map((project, index) => (
+            {visibleProjects.map((project, index) => (
               <div
                 key={project.id}
                 className="w-[calc(100vw-4rem)] sm:w-[420px] flex-shrink-0 snap-start"
@@ -266,7 +326,7 @@ export default function Projects() {
                     {/* Header */}
                     <div className="flex justify-between items-center text-[10px] tracking-[0.2em] text-gray-500 font-mono uppercase">
                       <span>{project.category}</span>
-                      <span>{project.number} / {String(projects.length).padStart(2, '0')}</span>
+                      <span>{project.number} / {String(visibleProjects.length).padStart(2, '0')}</span>
                     </div>
 
                     {/* Main Content */}
@@ -325,7 +385,7 @@ export default function Projects() {
 
           {/* Mobile Navigation Dots */}
           <div className="flex justify-center gap-3 mt-8 lg:hidden">
-            {projects.map((_, index) => (
+            {visibleProjects.map((_, index) => (
               <button
                 key={index}
                 onClick={() => scrollToSlide(index)}

@@ -10,10 +10,10 @@ export default function Hero() {
     target: ref,
     offset: ['start start', 'end start']
   })
-  
+
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
-  
+
   const navItems = [
     { name: 'About', href: '#about' },
     { name: 'Work', href: '#work' },
@@ -37,7 +37,7 @@ export default function Hero() {
   }
 
   return (
-    <section ref={ref} id="hero" className="relative min-h-screen overflow-hidden">
+    <section ref={ref} id="hero" className="relative min-h-screen overflow-hidden bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-24 sm:pt-32 pb-16 sm:pb-20">
         {/* Name Header */}
         <motion.div
@@ -80,8 +80,8 @@ export default function Hero() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
           <div className="md:col-span-3">
-            <p className="text-sm font-normal text-gray-500">Full Stack</p>
-            <p className="text-sm font-normal text-gray-500">Creative Engineer</p>
+            <p className="text-sm font-normal text-gray-500">Product & Web Designer</p>
+            <p className="text-sm font-normal text-gray-500">GenAI-driven experiences</p>
           </div>
 
           <div className="md:col-span-4">
@@ -148,7 +148,7 @@ export default function Hero() {
           className="max-w-5xl mt-16 sm:mt-20"
         >
           <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] tracking-tight text-black mb-8">
-            I'm Alireza, a creative AI engineer based in Toronto, Ontario. Currently working as a Front-end developer at IKEA.
+            I'm Alireza, a Product and Web Designer (GenAI) based in Toronto. Currently designing and building digital experiences for IKEA web and app.
           </p>
           <div className="flex flex-wrap gap-4">
             <Button

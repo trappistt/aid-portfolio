@@ -1,0 +1,156 @@
+%-------------------------
+% Resume in Latex
+% Author : Alireza Iman
+% Website: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fontawesome} % Package for icons like LinkedIn and GitHub
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.375in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\href{http://alirezaiman.me/}{\Large Alireza Iman}} & \small{(437) 771-7845 $\mid$ \href{mailto:alirezaiman@yahoo.com}{alirezaiman@yahoo.com}} \\
+  \small{Product \& Web Designer (GenAI)} & \small{\href{https://www.linkedin.com/in/alirezaiman/}{\faLinkedin} $\mid$ \href{https://github.com/}{\faGithub} $\mid$ \href{http://alirezaiman.me/}{alirezaiman.me}} \\
+\end{tabular*}
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Toronto Metropolitan University}{Toronto, ON}
+      {Bachelor of Science in Computer Science (Bridge Program)}{2023 -- 2025}
+      \resumeItemListStart
+        \resumeItem{AI Research \& Image Detection}
+          {Research focus on detection of synthetic video footage using \textbf{LLM} and neural network models. Developed ML infrastructure and data processing pipelines for image detection using Python/TensorFlow.}
+      \resumeItemListEnd
+    \resumeSubheading
+      {George Brown College}{Toronto, ON}
+      {Diploma in Computer System Technician}{2018 -- 2020}
+  \resumeSubHeadingListEnd
+
+%--------PROGRAMMING SKILLS------------ (Moved up for quick screening)
+\section{Technical Skills}
+ \resumeSubHeadingListStart
+   \item{
+     \textbf{Design Tools \& AI/ML}{: Figma, Adobe XD, Sketch, Adobe After Effects, Photoshop, Illustrator, InDesign, GenAI Prototyping, LLM}
+   }
+   \item{
+     \textbf{Languages, Frameworks \& Development Tools}{: TypeScript, JavaScript, Python, HTML5, CSS3, React, Next.js, Node.js, GitHub, Vercel, Linear, Contentful}
+   }
+ \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+    {IKEA}{Toronto, Canada}
+    {Digital Designer - Web \& App Experience}{March 2022 -- Present}
+    \resumeItemListStart
+      \resumeItem{Product Design \& UX Strategy}
+        {Lead product design and UX strategy for IKEA web and app experiences, focusing on merchandising, checkout flows, page layouts, navigation, and homepage design for Canadian customers. Implement user experience (UX) and design strategy to deliver excellent digital experiences across all touchpoints.}
+      \resumeItem{GenAI-Driven Prototyping}
+        {Utilize \textbf{GenAI-driven approaches} for rapid prototyping and design exploration, enabling faster iteration and innovative solution development. Collaborate with product teams to bring UX and design strategy to life through design sprints and human-centered design workshops.}
+      \resumeItem{Design System Development}
+        {Contribute to the \textbf{Skapa design system}, ensuring high-quality deliverables and design consistency. Work with Center of Excellence (CoE) teams to leverage best practices and maintain design system standards across web and app platforms.}
+      \resumeItem{Engineering Collaboration}
+        {Collaborate closely with engineering teams to ensure design feasibility and seamless handoff. Bridge design and implementation through clear specifications, design documentation, and front-end development support using \textbf{React, GitHub, and Contentful}.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {IKEA}{Toronto, Canada}
+    {Graphic Designer - In-store Communication}{April 2019 -- March 2022}
+    \resumeItemListStart
+      \resumeItem{Visual Concept Development}
+        {Created visual concepts and motion media to communicate ideas that inspire, inform, and captivate consumers. Developed graphics for home furnishing offers, seasonal campaigns, and retail design messaging using \textbf{Adobe After Effects, Photoshop, Illustrator, and InDesign}.}
+      \resumeItem{Motion Media \& In-store Solutions}
+        {Produced motion media assets for in-store displays and marketing campaigns, enhancing customer engagement with promotional offers and brand messages. Designed visual solutions for 10+ retail stores, supporting national sales campaigns.}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------------
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Be Here - Streaming Platform}{2025}
+      {Developer \& Designer}{}
+      \resumeItemListStart
+        \resumeItem{Full-Stack Development}
+          {Developed and designed cross-platform streaming application using \textbf{TypeScript, Next.js, React, and Vercel}, delivering seamless experiences on web, iOS, and Android.}
+        \resumeItem{Product Design}
+          {Designed intuitive user interfaces focusing on clarity, ease of use, and engaging user experience. Implemented responsive design and efficient backend integration.}
+        \resumeItem{Launch Metrics}
+          {Successfully launched with over 400 weekly downloads and 350+ active users since November 2025. Accessible at \texttt{https://www.thebehere.com/}.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-------------------------------------------
+\end{document}
+

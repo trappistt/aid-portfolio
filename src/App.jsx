@@ -1,15 +1,25 @@
+import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { Analytics } from '@vercel/analytics/react'
+import { AnimatePresence } from 'framer-motion'
 import Home from './pages/Home.jsx'
 import Blog from './pages/Blog.jsx'
 import CaseStudy from './components/CaseStudy.jsx'
 import BlogPost from './components/BlogPost.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
 import ScrollProgress from './components/ScrollProgress.jsx'
+import LoadingScreen from './components/LoadingScreen.jsx'
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true)
+
   return (
     <>
+      <AnimatePresence mode="wait">
+        {isLoading && (
+          <LoadingScreen key="loader" onComplete={() => setIsLoading(false)} />
+        )}
+      </AnimatePresence>
       <ScrollToTop />
       <ScrollProgress />
       <Routes>

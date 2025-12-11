@@ -2,19 +2,51 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 
 const services = [
-  'Interface Design',
-  'Creative Front-end',
-  'WebGL & Three.js',
+  'Product & Web Design',
+  'GenAI-led Prototyping',
   'Design Systems',
-  'Prototyping',
-  'Performance Tuning',
+  'UX/UI for Web & App',
+  'Visual Storytelling',
+  'Front-end Handoff',
 ]
 
 const skills = [
-  { category: 'Front-end', items: ['React', 'TypeScript', 'Next.js', 'Vue.js'] },
-  { category: '3D & Graphics', items: ['Three.js', 'WebGL', 'GLSL', 'Blender'] },
-  { category: 'Tools', items: ['Figma', 'Git', 'Vite', 'Webpack'] },
-  { category: 'Languages', items: ['JavaScript', 'TypeScript', 'Python', 'HTML/CSS'] },
+  { category: 'Design', items: ['Figma', 'Adobe XD', 'Sketch'] },
+  { category: 'Visual & Motion', items: ['Adobe After Effects', 'Photoshop', 'Illustrator', 'InDesign'] },
+  { category: 'Front-end', items: ['HTML', 'CSS', 'JavaScript', 'React'] },
+  { category: 'Collaboration', items: ['GitHub', 'Linear'] },
+]
+
+const experience = [
+  {
+    role: 'Digital Designer - Web & App Experience',
+    company: 'IKEA',
+    timeframe: 'Mar 2022 — Present',
+    summary:
+      'Designing and shipping web/app experiences for Canadian customers across merchandising, checkout, navigation, and homepage journeys for IKEA.ca and the IKEA app.',
+  },
+  {
+    role: 'Visual Designer - In-store Communication',
+    company: 'IKEA',
+    timeframe: 'Apr 2019 — Mar 2022',
+    summary:
+      'Created in-store communication, seasonal campaigns, offers, and motion assets that supported marketing and store experience.',
+  },
+]
+
+const education = [
+  {
+    school: 'Toronto Metropolitan University',
+    degree: 'BSc Computer Science (Bridge Program)',
+    timeframe: '2023 — 2025',
+    summary: 'Focused on AI research and image detection.',
+  },
+  {
+    school: 'George Brown College',
+    degree: 'Computer Systems Technician',
+    timeframe: '2018 — 2020',
+    summary: 'Web design and development focus.',
+  },
 ]
 
 export default function About() {
@@ -46,10 +78,10 @@ export default function About() {
             </h2>
             <div className="space-y-6">
               <p className="text-xl sm:text-2xl text-gray-700 leading-relaxed font-normal">
-                I'm a full stack creative engineer with 5+ years of experience mainly in frontend development and Visual/UI design.
+                I'm a Product and Web Designer (GenAI) who blends visual design, UX, and front-end craft to ship thoughtful experiences.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed font-normal">
-                I worked at IKEA from 2019 to 2025 in various design and development roles, with the latest one being Front-end developer. I've also worked on several freelance projects for clients, blending design, code, and emerging technology to build experiences that feel effortless on the surface and highly engineered underneath.
+                At IKEA, I shape the web and app journeys for Canadian customers—merchandising, checkout, navigation, and homepage. Previously, I created in-store communication and motion assets across campaigns. My comp sci background and AI research help me prototype quickly and bridge design with implementation.
               </p>
             </div>
           </motion.div>
@@ -82,8 +114,7 @@ export default function About() {
           >
             <h3 className="text-xl sm:text-2xl font-serif font-medium mb-4 sm:mb-8 text-black tracking-tight">Services</h3>
             <p className="text-base text-gray-600 mb-6 sm:mb-8 max-w-2xl font-normal leading-relaxed">
-              Specializing in modern front-end development, WebGL visuals, and tightly crafted
-              product interfaces.
+              Product and web design with GenAI prototyping, systematic UX, and visual storytelling for web and app experiences.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {services.map((service) => (
@@ -124,6 +155,59 @@ export default function About() {
                       </span>
                     ))}
                   </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Experience & Education */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 mt-16 sm:mt-20">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h3 className="text-xl sm:text-2xl font-serif font-medium mb-4 sm:mb-8 text-black tracking-tight">
+              Experience
+            </h3>
+            <div className="space-y-6">
+              {experience.map((item) => (
+                <div key={item.role} className="p-4 sm:p-5 border border-gray-200 rounded-lg">
+                  <div className="flex items-center justify-between gap-3 mb-2">
+                    <div>
+                      <p className="text-base sm:text-lg font-medium text-black">{item.role}</p>
+                      <p className="text-sm text-gray-600">{item.company}</p>
+                    </div>
+                    <p className="text-xs text-gray-500 uppercase tracking-wider font-mono">{item.timeframe}</p>
+                  </div>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{item.summary}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <h3 className="text-xl sm:text-2xl font-serif font-medium mb-4 sm:mb-8 text-black tracking-tight">
+              Education
+            </h3>
+            <div className="space-y-6">
+              {education.map((item) => (
+                <div key={item.school} className="p-4 sm:p-5 border border-gray-200 rounded-lg">
+                  <div className="flex items-center justify-between gap-3 mb-2">
+                    <div>
+                      <p className="text-base sm:text-lg font-medium text-black">{item.school}</p>
+                      <p className="text-sm text-gray-600">{item.degree}</p>
+                    </div>
+                    <p className="text-xs text-gray-500 uppercase tracking-wider font-mono">{item.timeframe}</p>
+                  </div>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{item.summary}</p>
                 </div>
               ))}
             </div>

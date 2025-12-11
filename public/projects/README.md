@@ -8,12 +8,12 @@ Organize each project's assets in its own folder:
 
 ```
 projects/
-├── ikea-comfort-guide/
+├── ikea-digital-experience/
 │   ├── IKEA-comfortguide.png (main/hero image)
 │   ├── IKEA-comfortguide-0.png (preview image)
 │   ├── IKEA-comfortguide-1.png (preview image)
 │   ├── IKEA-comfortguide-2.png (preview image)
-│   └── IKEA-comfort-guide-3.png (preview image)
+│   └── IKEA-comfortguide-3.png (preview image)
 ├── project-2-name/
 │   ├── hero-image.jpg
 │   └── preview-1.jpg
@@ -23,7 +23,7 @@ projects/
 
 ## Naming Convention
 
-- Use kebab-case for folder names (e.g., `ikea-comfort-guide`)
+- Use kebab-case for folder names (e.g., `ikea-digital-experience`)
 - Use descriptive filenames for images
 - Main/hero image should be clearly named (e.g., `hero.jpg` or project name)
 
@@ -55,4 +55,4 @@ projects/
 
 ## Current Projects
 
-- **ikea-comfort-guide**: IKEA Comfort Guide for Canadian market
+- **ikea-digital-experience**: IKEA Digital Experience for Canadian market
