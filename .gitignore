@@ -1,64 +1,46 @@
-# Dependencies
-node_modules/
+# Logs
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Build outputs
-dist/
-build/
-.vite/
+node_modules
+dist
+dist-ssr
 *.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
 # Environment variables
 .env
 .env.local
-.env.development.local
-.env.test.local
 .env.production.local
+.env.development.local
 
-# IDE and editor files
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-.DS_Store
-Thumbs.db
-*.code-workspace
-public/*.code-workspace
+# Build outputs
+build
+*.tsbuildinfo
 
-# OS files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+# Font files
+*.otf
+*.ttf
+*.woff
+*.woff2
+*.eot
+PP Neue Montreal - Free for Personal Use v2.6/
 
-# Logs
-logs/
-*.log
 
-# Cache
-.cache/
-.parcel-cache/
-.next/
-.nuxt/
-.output/
 
-# Temporary files
-*.tmp
-*.temp
-*.bak
-*.backup
 
-# Large font folders (if not needed in repo)
-PP Neue Montreal - Free for Personal Use*/
-
-# Large 3D model files
-*.glb
-public/*.glb

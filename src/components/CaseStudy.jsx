@@ -6,6 +6,7 @@ import Navigation from './Navigation.jsx'
 import Footer from './Footer.jsx'
 import { useSmoothScroll, getLenisInstance } from '../hooks/useSmoothScroll'
 import * as simpleIcons from 'simple-icons'
+import ProjectsPasswordProtection from './ProjectsPasswordProtection.jsx'
 
 // Map tech stack names to simple-icons property names
 const techIconMap = {
@@ -716,7 +717,15 @@ export default function CaseStudy() {
   const project = projects.find(p => p.caseStudy === `/case-study/${slug}`)
   const [selectedImage, setSelectedImage] = useState(null)
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    // Check if already authenticated in this session
+    return sessionStorage.getItem('projects_authenticated') === 'true'
+  })
   const caseStudyContent = project?.caseStudyContent
+
+  const handleAuthenticated = () => {
+    setIsAuthenticated(true)
+  }
 
   // Enable smooth scroll
   useSmoothScroll()
@@ -771,6 +780,15 @@ export default function CaseStudy() {
             </Button>
           </div>
         </div>
+      </div>
+    )
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Navigation />
+        <ProjectsPasswordProtection onAuthenticated={handleAuthenticated} />
       </div>
     )
   }

@@ -9,22 +9,9 @@ import BlogPost from './components/BlogPost.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
 import ScrollProgress from './components/ScrollProgress.jsx'
 import LoadingScreen from './components/LoadingScreen.jsx'
-import PasswordProtection from './components/PasswordProtection.jsx'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
-  const [isAuthenticated, setIsAuthenticated] = useState(() => {
-    // Check if already authenticated on mount
-    return sessionStorage.getItem('portfolio_authenticated') === 'true'
-  })
-
-  const handleAuthenticated = () => {
-    setIsAuthenticated(true)
-  }
-
-  if (!isAuthenticated) {
-    return <PasswordProtection onAuthenticated={handleAuthenticated} />
-  }
 
   return (
     <>

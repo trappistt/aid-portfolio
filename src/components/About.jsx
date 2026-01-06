@@ -2,50 +2,66 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 
 const services = [
-  'Product & Web Design',
-  'GenAI-led Prototyping',
-  'Design Systems',
-  'UX/UI for Web & App',
-  'Visual Storytelling',
-  'Front-end Handoff',
+  'Digital Direct Commerce (DDC)',
+  'GenAI-Driven Merchandising',
+  'Consumer Journey Architecture',
+  'Technical Product Ownership',
+  'Conversion Rate Optimization',
+  'Agentic Commerce',
 ]
 
 const skills = [
-  { category: 'Design', items: ['Figma', 'Adobe XD', 'Sketch'] },
-  { category: 'Visual & Motion', items: ['Adobe After Effects', 'Photoshop', 'Illustrator', 'InDesign'] },
-  { category: 'Front-end', items: ['HTML', 'CSS', 'JavaScript', 'React'] },
-  { category: 'Collaboration', items: ['GitHub', 'Linear'] },
+  { 
+    category: 'Commerce & Strategy', 
+    items: ['In-Season Business Planning', 'CRO', 'Site Taxonomy', 'Search Intent Optimization', 'Omnichannel Strategy'] 
+  },
+  { 
+    category: 'Development & UX', 
+    items: ['TypeScript', 'React', 'Next.js', 'Python', 'Node.js', 'SQL', 'Figma', 'GEO', 'Agentic Frameworks'] 
+  },
+  { 
+    category: 'Visual & Motion', 
+    items: ['Adobe After Effects', 'Photoshop', 'Illustrator', 'InDesign'] 
+  },
 ]
 
 const experience = [
   {
-    role: 'Digital Designer - Web & App Experience',
-    company: 'IKEA',
+    role: 'Country Digital Merchandising Leader',
+    company: 'IKEA (Ingka Group)',
+    location: 'Burlington, Canada',
     timeframe: 'Mar 2022 — Present',
     summary:
-      'Designing and shipping web/app experiences for Canadian customers across merchandising, checkout, navigation, and homepage journeys for IKEA.ca and the IKEA app.',
+      'Lead the digital flagship in-season business plan by orchestrating a cross-functional offense with Brand, Marketing, and Digital Ops. Own the end-to-end consumer journey for IKEA App and Web, leveraging GA4 and search behavior insights to implement Agentic Commerce features. Deploy Generative AI frameworks to automate local market content adaptations and personalized product storytelling.',
   },
   {
-    role: 'Visual Designer - In-store Communication',
+    role: 'Graphic Design Specialist',
     company: 'IKEA',
+    location: 'North York, Canada',
     timeframe: 'Apr 2019 — Mar 2022',
     summary:
-      'Created in-store communication, seasonal campaigns, offers, and motion assets that supported marketing and store experience.',
+      'Developed high-profile graphical concepts to captivate consumers, ensuring consistent brand messaging across the global digital flagship. Partnered with digital producers to deliver end-to-end visual materials for websites, mobile apps, and social commerce.',
   },
 ]
 
 const education = [
   {
     school: 'Toronto Metropolitan University',
-    degree: 'BSc Computer Science (Bridge Program)',
+    degree: 'Bachelor of Science in Computer Science (Minor in Economics)',
     timeframe: '2023 — 2025',
-    summary: 'Focused on AI research and image detection.',
+    summary: 'Research on detection of synthetic content and LLM-driven ML infrastructure.',
+  },
+  {
+    school: 'General Assembly',
+    degree: 'UX Design Professional Certificate',
+    timeframe: '2021',
+    summary: '',
   },
   {
     school: 'George Brown College',
-    degree: 'Computer Systems Technician',
+    degree: 'Diploma in Computer System Technician',
     timeframe: '2018 — 2020',
-    summary: 'Web design and development focus.',
+    summary: '',
   },
 ]
 
@@ -78,10 +94,10 @@ export default function About() {
             </h2>
             <div className="space-y-6">
               <p className="text-xl sm:text-2xl text-gray-700 leading-relaxed font-normal">
-                I'm a Product and Web Designer (GenAI) who blends visual design, UX, and front-end craft to ship thoughtful experiences.
+                Technical E-Commerce Leader with 7+ years of experience specializing in Digital Direct Commerce (DDC) and Site Experience.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed font-normal">
-                At IKEA, I shape the web and app journeys for Canadian customers—merchandising, checkout, navigation, and homepage. Previously, I created in-store communication and motion assets across campaigns. My comp sci background and AI research help me prototype quickly and bridge design with implementation.
+                Expert in running an "Integrated Offense" across cross-functional teams to optimize digital flagship journeys through data-driven merchandising and UX innovation. Computer Science graduate proficient in React, Python, and Agentic Commerce to drive frictionless consumer experiences and full-funnel conversion.
               </p>
             </div>
           </motion.div>
@@ -114,7 +130,7 @@ export default function About() {
           >
             <h3 className="text-xl sm:text-2xl font-serif font-medium mb-4 sm:mb-8 text-black tracking-tight">Services</h3>
             <p className="text-base text-gray-600 mb-6 sm:mb-8 max-w-2xl font-normal leading-relaxed">
-              Product and web design with GenAI prototyping, systematic UX, and visual storytelling for web and app experiences.
+              Leading digital flagship business planning, consumer journey architecture, and GenAI-driven merchandising to optimize conversion and drive full-funnel growth.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {services.map((service) => (
@@ -179,6 +195,7 @@ export default function About() {
                     <div>
                       <p className="text-base sm:text-lg font-medium text-black">{item.role}</p>
                       <p className="text-sm text-gray-600">{item.company}</p>
+                      {item.location && <p className="text-xs text-gray-500">{item.location}</p>}
                     </div>
                     <p className="text-xs text-gray-500 uppercase tracking-wider font-mono">{item.timeframe}</p>
                   </div>

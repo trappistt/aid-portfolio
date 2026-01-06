@@ -193,7 +193,17 @@ const projects = [
 export default function Projects() {
   const containerRef = useRef(null)
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [showPasswordModal, setShowPasswordModal] = useState(false)
+  const [pendingLink, setPendingLink] = useState(null)
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
   const visibleProjects = projects.filter(project => !project.disabled)
+
+  const handleViewLiveClick = (e, link) => {
+    // No password required for View Live links
+    window.open(link, '_blank', 'noopener,noreferrer')
+  }
+
 
   useEffect(() => {
     const container = containerRef.current
@@ -251,7 +261,7 @@ export default function Projects() {
 
   return (
     <section id="work" className="relative py-24 sm:py-32 px-6 sm:px-8 lg:px-12 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-12 sm:mb-16">
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium mb-4 text-black tracking-tight">
@@ -364,10 +374,12 @@ export default function Projects() {
                       </div>
                       <div className="flex gap-2">
                         {project.link && (
-                          <Button asChild size="sm" className="flex-1">
-                            <a href={project.link} target="_blank" rel="noopener noreferrer">
-                              View Live
-                            </a>
+                          <Button 
+                            size="sm" 
+                            className="flex-1"
+                            onClick={(e) => handleViewLiveClick(e, project.link)}
+                          >
+                            View Live
                           </Button>
                         )}
                         {project.caseStudy && (

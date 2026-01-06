@@ -80,8 +80,8 @@ export default function Hero() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
           <div className="md:col-span-3">
-            <p className="text-sm font-normal text-gray-500">Product & Web Designer</p>
-            <p className="text-sm font-normal text-gray-500">GenAI-driven experiences</p>
+            <p className="text-sm font-normal text-gray-500">Technical E-Commerce Leader</p>
+            <p className="text-sm font-normal text-gray-500">Digital Product & Experience</p>
           </div>
 
           <div className="md:col-span-4">
@@ -148,7 +148,7 @@ export default function Hero() {
           className="max-w-5xl mt-16 sm:mt-20"
         >
           <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] tracking-tight text-black mb-8">
-            I'm Alireza, a Product and Web Designer (GenAI) based in Toronto. Currently designing and building digital experiences for IKEA web and app.
+            I'm Alireza, a Technical E-Commerce Leader based in Toronto. Leading digital merchandising and consumer journey architecture for IKEA, specializing in Digital Direct Commerce and Agentic Commerce.
           </p>
           <div className="flex flex-wrap gap-4">
             <Button
