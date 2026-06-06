@@ -1,46 +1,42 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
+# Dependencies & build
 node_modules
 dist
 dist-ssr
-*.local
+build
+*.tsbuildinfo
 
-# Editor directories and files
+# Logs & env
+logs
+*.log
+npm-debug.log*
+.env
+.env.*
+!.env.example
+
+# OS & editors
+.DS_Store
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 
-# Environment variables
-.env
-.env.local
-.env.production.local
-.env.development.local
+# Design sources (keep out of deploy repo)
+_source/
+*.blend
+textures/
+otf/
+indieground-advercasefont-demo/
 
-# Build outputs
-build
-*.tsbuildinfo
-
-# Font files
-*.otf
-*.ttf
-*.woff
-*.woff2
-*.eot
-PP Neue Montreal - Free for Personal Use v2.6/
-
-
-
-
+# Root asset duplicates (canonical copies live in public/)
+/*.gif
+/*.mp3
+/*.png
+/*.jpg
+/*.jpeg
+/*.webp
+/*.exr
+/*.glb

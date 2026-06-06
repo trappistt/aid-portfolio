@@ -9,7 +9,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['PP Neue Montreal', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-        serif: ['Instrument Serif', 'serif'],
+        serif: ['Advercase', 'Georgia', 'serif'],
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -17,6 +17,21 @@ export default {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
+        page: '#0E0E0E',
+        block: '#1A1A1A',
+        ink: '#F5F4F2',
+        stone: {
+          50: '#FAFAF9',
+          100: '#F5F4F2',
+          200: '#E7E5E4',
+          300: '#D6D3D1',
+          400: '#A8A29E',
+          500: '#78716C',
+          600: '#57534E',
+          700: '#44403C',
+          800: '#292524',
+          900: '#1C1917',
+        },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
@@ -60,7 +75,6 @@ export default {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
 }
 
 

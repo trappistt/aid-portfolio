@@ -1,77 +1,54 @@
-# Portfolio - WebGL & Three.js
+# Alireza Iman — Portfolio
 
-A modern, interactive portfolio website featuring WebGL and Three.js experiences, inspired by creative developer portfolios.
+Single-page portfolio with a horizontal scroll layout and an interactive 3D vinyl project showcase.
 
-## Features
+## Stack
 
-- 🎨 **WebGL Background** - Custom shader-based animated background
-- ✨ **Three.js Integration** - Interactive 3D particles and effects
-- 🎭 **Smooth Animations** - Framer Motion for fluid transitions
-- 📱 **Responsive Design** - Mobile-first approach with Tailwind CSS
-- 🚀 **Modern Stack** - React + Vite for fast development
+- **React + Vite** — UI and build
+- **Three.js / React Three Fiber** — vinyl crate scene
+- **Framer Motion + GSAP** — section and interaction animation
+- **Lenis** — smooth horizontal scroll
+- **Tailwind CSS** — styling
+- **Vercel** — hosting and analytics
 
-## Tech Stack
-
-- **React** - UI framework
-- **Three.js** - 3D graphics library
-- **@react-three/fiber** - React renderer for Three.js
-- **@react-three/drei** - Useful helpers for react-three-fiber
-- **Framer Motion** - Animation library
-- **Tailwind CSS** - Utility-first CSS framework
-- **Vite** - Build tool and dev server
-
-## Getting Started
-
-### Installation
+## Commands
 
 ```bash
 npm install
-```
-
-### Development
-
-```bash
-npm run dev
-```
-
-The site will be available at `http://localhost:3000`
-
-### Build
-
-```bash
+npm run dev      # http://localhost:3000
 npm run build
-```
-
-### Preview Production Build
-
-```bash
 npm run preview
 ```
 
-## Project Structure
+## Project structure
 
 ```
 src/
+├── App.jsx                 # single-page layout
 ├── components/
-│   ├── WebGLScene.jsx    # Three.js scene with shaders
-│   ├── Navigation.jsx    # Navigation component
-│   ├── Hero.jsx          # Hero section
-│   ├── Projects.jsx      # Projects showcase
-│   ├── About.jsx         # About section
-│   └── Footer.jsx        # Footer component
-├── App.jsx               # Main app component
-├── main.jsx              # Entry point
-└── index.css             # Global styles
+│   ├── layout/Block.jsx    # scroll section shell
+│   ├── sections/           # intro, about, works, experience, contact…
+│   └── vinyl-portfolio/    # 3D scene, showcase, audio
+├── data/
+│   ├── projects.js         # project content + asset paths
+│   └── showcaseLayout.js   # bento grid layout
+├── hooks/
+└── styles/
+
+public/
+├── audio/                  # room ambient + hover sfx
+├── fonts/
+├── models/                 # GLTF assets
+├── textures/               # 3D scene textures
+└── projects/{slug}/        # vinyl covers + showcase images
 ```
 
-## Customization
+## Content & assets
 
-- Update project data in `src/components/Projects.jsx`
-- Modify shader effects in `src/components/WebGLScene.jsx`
-- Customize colors and styling in `tailwind.config.js`
-- Edit content in respective component files
+- **Copy / project data:** `src/data/projects.js`, section files in `src/components/sections/`
+- **Images & audio:** `public/` — see [`public/projects/README.md`](public/projects/README.md)
+- **Hosting strategy:** [`docs/ASSETS.md`](docs/ASSETS.md)
 
-## License
+## Deploy
 
-MIT
-
+Push to GitHub and connect the repo to Vercel. Static assets in `public/` are served from the CDN automatically — no separate asset host required for typical portfolio sizes.

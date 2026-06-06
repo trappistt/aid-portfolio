@@ -1,0 +1,183 @@
+/* Vinyl Portfolio — premium glassmorphism & overlay styles */
+
+.vinyl-portfolio {
+  --vinyl-bg: #0f0f10;
+  --vinyl-glass: rgba(255, 255, 255, 0.06);
+  --vinyl-glass-border: rgba(255, 255, 255, 0.12);
+  --vinyl-text: #f5f4f2;
+  --vinyl-muted: rgba(245, 244, 242, 0.55);
+}
+
+.vinyl-portfolio__canvas {
+  touch-action: none;
+  cursor: grab;
+}
+
+.vinyl-portfolio__canvas--pointer {
+  cursor: pointer;
+}
+
+.vinyl-portfolio__canvas--grabbing {
+  cursor: grabbing;
+}
+
+/* Hover tooltip for vinyl records */
+.vinyl-tooltip {
+  pointer-events: none;
+  transform: translate(-50%, -100%);
+  animation: vinyl-tooltip-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes vinyl-tooltip-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-100% + 8px));
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -100%);
+  }
+}
+
+/* Glassmorphism project panel */
+.vinyl-panel {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.04) 50%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  border: 1px solid var(--vinyl-glass-border);
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.vinyl-panel__carousel-dot {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.vinyl-panel__carousel-dot--active {
+  width: 1.5rem;
+  background: white;
+}
+
+/* Loading screen — warm, bright to match the sunlit reveal */
+.vinyl-loading {
+  background: linear-gradient(180deg, #f5f2ec 0%, #e7e1d5 100%);
+}
+
+.vinyl-loading__bar {
+  background: linear-gradient(90deg, transparent, rgba(90, 70, 45, 0.55), transparent);
+  animation: vinyl-loading-shimmer 1.8s ease-in-out infinite;
+}
+
+@keyframes vinyl-loading-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+/* Audio toggle — sits on the bright scene, so use dark-on-light glass */
+.vinyl-audio-toggle {
+  background: rgba(40, 33, 22, 0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(40, 33, 22, 0.12);
+  color: rgba(60, 50, 35, 0.7);
+}
+
+.vinyl-audio-toggle:hover {
+  color: rgba(40, 33, 22, 0.95);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .vinyl-tooltip,
+  .vinyl-loading__bar {
+    animation: none;
+  }
+}
+
+/* ── Full-screen project showcase (bento grid) ── */
+.project-showcase {
+  --showcase-overlay: rgba(5, 5, 6, 0.52);
+  background: #050506;
+}
+
+.project-showcase__backdrop {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.project-showcase__backdrop-img {
+  position: absolute;
+  inset: -25%;
+  width: 150%;
+  height: 150%;
+  object-fit: cover;
+  filter: blur(72px) saturate(1.15) brightness(0.55);
+  transform: scale(1.08);
+  opacity: 0.85;
+}
+
+.project-showcase__backdrop::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--showcase-overlay);
+}
+
+.project-showcase__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  height: 100%;
+}
+
+.project-showcase__tile {
+  min-height: 0;
+  isolation: isolate;
+}
+
+.project-showcase__tile img {
+  display: block;
+}
+
+.project-showcase__footer {
+  background: transparent;
+}
+
+.project-showcase__tag {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 768px) {
+  .project-showcase__grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: none;
+    height: auto;
+    max-height: none;
+    overflow-y: auto;
+  }
+
+  .project-showcase__tile {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    aspect-ratio: 4 / 3;
+    min-height: 140px;
+  }
+
+  .project-showcase__footer {
+    grid-template-columns: 1fr;
+  }
+
+  .project-showcase__backdrop-img {
+    filter: blur(48px) saturate(1.1) brightness(0.5);
+  }
+}
