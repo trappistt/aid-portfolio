@@ -1,7 +1,0 @@
-export { default as IntroBlock } from './IntroBlock'
-export { default as AboutBlock } from './AboutBlock'
-export { default as WorksBlock } from './WorksBlock'
-export { default as ExperienceBlock } from './ExperienceBlock'
-export { default as PhilosophyBlock } from './PhilosophyBlock'
-export { default as StatementBlock } from './StatementBlock'
-export { default as ContactBlock } from './ContactBlock'

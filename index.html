@@ -5,7 +5,10 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Google tag (gtag.js) -->
+    <meta
+      name="description"
+      content="Alireza Iman — Digital Experience Manager. Product design, commerce, and digital strategy."
+    />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TDBM4NRY44"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -13,12 +16,21 @@
       gtag('js', new Date());
       gtag('config', 'G-TDBM4NRY44');
     </script>
-    <title>Alireza Iman — Creative AI Front-end Developer</title>
+    <title>Alireza Iman</title>
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var dark =
+            stored === 'dark' ||
+            (stored !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (dark) document.documentElement.classList.add('dark');
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
-
-

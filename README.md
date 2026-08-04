@@ -1,14 +1,13 @@
 # Alireza Iman — Portfolio
 
-Single-page portfolio with a horizontal scroll layout and an interactive 3D vinyl project showcase.
+Minimal single-page portfolio.
 
 ## Stack
 
-- **React + Vite** — UI and build
-- **Three.js / React Three Fiber** — vinyl crate scene
-- **Framer Motion + GSAP** — section and interaction animation
-- **Lenis** — smooth horizontal scroll
-- **Tailwind CSS** — styling
+- **React + Vite**
+- **Tailwind CSS**
+- **PP Neue Montreal** — all type
+- **Framer Motion** — light section fades
 - **Vercel** — hosting and analytics
 
 ## Commands
@@ -20,35 +19,22 @@ npm run build
 npm run preview
 ```
 
-## Project structure
+## Structure
 
 ```
 src/
-├── App.jsx                 # single-page layout
+├── App.jsx
 ├── components/
-│   ├── layout/Block.jsx    # scroll section shell
-│   ├── sections/           # intro, about, works, experience, contact…
-│   └── vinyl-portfolio/    # 3D scene, showcase, audio
-├── data/
-│   ├── projects.js         # project content + asset paths
-│   └── showcaseLayout.js   # bento grid layout
-├── hooks/
-└── styles/
-
-public/
-├── audio/                  # room ambient + hover sfx
-├── fonts/
-├── models/                 # GLTF assets
-├── textures/               # 3D scene textures
-└── projects/{slug}/        # vinyl covers + showcase images
+│   ├── About.jsx
+│   ├── Work.jsx
+│   ├── Experience.jsx
+│   ├── FloatingNav.jsx
+│   └── icons.jsx
+└── data/
+    └── projects.js
 ```
 
-## Content & assets
-
-- **Copy / project data:** `src/data/projects.js`, section files in `src/components/sections/`
-- **Images & audio:** `public/` — see [`public/projects/README.md`](public/projects/README.md)
-- **Hosting strategy:** [`docs/ASSETS.md`](docs/ASSETS.md)
-
-## Deploy
-
-Push to GitHub and connect the repo to Vercel. Static assets in `public/` are served from the CDN automatically — no separate asset host required for typical portfolio sizes.
+Content: `src/data/projects.js` and `src/components/About.jsx`  
+Avatar: `public/avatar.png`  
+Fonts: `public/fonts/neue-montreal/`  
+Project images: `public/projects/{slug}/`
