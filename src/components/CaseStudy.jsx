@@ -93,6 +93,9 @@ export default function CaseStudy() {
     ...(project.website
       ? [{ label: 'Website', value: project.website, href: project.website }]
       : []),
+    ...(project.appStore
+      ? [{ label: 'App', value: project.appStore, href: project.appStore }]
+      : []),
   ]
 
   return (
@@ -120,6 +123,15 @@ export default function CaseStudy() {
       </nav>
 
       <div className="mx-auto max-w-content px-6 sm:px-8 pt-16 pb-28 md:pl-28 lg:pl-32">
+        {project.logo && (
+          <img
+            src={project.logo}
+            alt=""
+            className={`${project.logoClass || 'h-6'} w-auto object-contain object-left mb-5 opacity-90`}
+            loading="eager"
+            draggable={false}
+          />
+        )}
         <h1 className="text-[1.4rem] sm:text-[1.5rem] font-normal tracking-[-0.02em] text-ink">
           {project.title}
         </h1>
