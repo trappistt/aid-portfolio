@@ -28,7 +28,11 @@ export const projects = [
       'Timeline ownership and delivery coordination',
       'Close collaboration with development through build and launch',
     ],
-    gallery: [],
+    gallery: [
+      '/projects/scotiabank/02.png',
+      '/projects/scotiabank/03.png',
+      '/projects/scotiabank/04.png',
+    ],
   },
   {
     id: 2,
@@ -91,7 +95,12 @@ export const projects = [
       'Design system foundations and components',
       'Collaboration through launch and iteration',
     ],
-    gallery: [],
+    gallery: [
+      '/projects/gravite-lab/gl.png',
+      '/projects/gravite-lab/gl-1.png',
+      '/projects/gravite-lab/gl-2.png',
+      '/projects/gravite-lab/gl-3.png',
+    ],
   },
 ]
 
@@ -120,36 +129,26 @@ export const experiences = [
 ]
 
 export const tools = [
-  {
-    category: 'Design',
-    items: [
-      { name: 'Figma', note: 'Product design and prototyping', url: 'https://www.figma.com' },
-      { name: 'FigJam', note: 'Workshops and mapping', url: 'https://www.figma.com/figjam/' },
-    ],
-  },
-  {
-    category: 'Build',
-    items: [
-      { name: 'Cursor', note: 'AI-assisted coding', url: 'https://cursor.com' },
-      { name: 'React', note: 'Interfaces and prototypes', url: 'https://react.dev' },
-      { name: 'Next.js', note: 'Product front ends', url: 'https://nextjs.org' },
-    ],
-  },
-  {
-    category: 'Research',
-    items: [
-      { name: 'Maze', note: 'Usability testing', url: 'https://maze.co' },
-      { name: 'Amplitude', note: 'Product analytics', url: 'https://amplitude.com' },
-    ],
-  },
-  {
-    category: 'Resources',
-    items: [
-      { name: 'Refactoring UI', note: 'Interface craft reference', url: 'https://www.refactoringui.com' },
-      { name: 'Laws of UX', note: 'Decision heuristics', url: 'https://lawsofux.com' },
-      { name: 'MDN', note: 'Web platform docs', url: 'https://developer.mozilla.org' },
-    ],
-  },
+  { id: 'figma', name: 'Figma', url: 'https://www.figma.com' },
+  { id: 'react', name: 'React', url: 'https://react.dev' },
+  { id: 'cursor', name: 'Cursor', url: 'https://cursor.com' },
+  { id: 'framer', name: 'Framer', url: 'https://www.framer.com' },
+  { id: 'claude', name: 'Claude', url: 'https://claude.ai' },
+  { id: 'mobbin', name: 'Mobbin', url: 'https://mobbin.com' },
+  { id: 'miro', name: 'Miro', url: 'https://miro.com' },
+  { id: 'spline', name: 'Spline', url: 'https://spline.design' },
+  { id: 'arena', name: 'Are.na', url: 'https://www.are.na' },
+  { id: 'paper', name: 'Paper', url: 'https://paper.design' },
+  { id: 'nextjs', name: 'Next.js', url: 'https://nextjs.org' },
+  { id: 'adobe', name: 'Adobe Creative Cloud', url: 'https://www.adobe.com/creativecloud.html' },
+]
+
+export const playground = [
+  { id: 1, src: '', alt: '' },
+  { id: 2, src: '', alt: '' },
+  { id: 3, src: '', alt: '' },
+  { id: 4, src: '', alt: '' },
+  { id: 5, src: '', alt: '' },
 ]
 
 export const EMAIL = 'alirezaiman@yahoo.com'

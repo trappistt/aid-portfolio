@@ -16,6 +16,7 @@ export default function CaseStudy() {
   const [galleryIndex, setGalleryIndex] = useState(0)
   const [showTop, setShowTop] = useState(false)
   const galleryRef = useRef(null)
+  const galleryCount = project?.gallery?.length ?? 0
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -55,35 +56,29 @@ export default function CaseStudy() {
   const syncGallery = useCallback(() => {
     const el = galleryRef.current
     if (!el) return
-    const slides = Array.from(el.children)
-    const center = el.scrollLeft + el.clientWidth / 2
-    let closest = 0
-    let closestDist = Infinity
-    slides.forEach((slide, i) => {
-      const mid = slide.offsetLeft + slide.offsetWidth / 2
-      const dist = Math.abs(center - mid)
-      if (dist < closestDist) {
-        closestDist = dist
-        closest = i
-      }
-    })
-    setGalleryIndex(closest)
-  }, [])
+    const width = el.clientWidth || 1
+    const next = Math.round(el.scrollLeft / width)
+    setGalleryIndex(Math.min(Math.max(next, 0), Math.max(galleryCount - 1, 0)))
+  }, [galleryCount])
 
   useEffect(() => {
     const el = galleryRef.current
     if (!el) return
     syncGallery()
     el.addEventListener('scroll', syncGallery, { passive: true })
-    return () => el.removeEventListener('scroll', syncGallery)
-  }, [syncGallery, project])
+    window.addEventListener('resize', syncGallery)
+    return () => {
+      el.removeEventListener('scroll', syncGallery)
+      window.removeEventListener('resize', syncGallery)
+    }
+  }, [syncGallery, slug])
 
   if (!project) return <Navigate to="/" replace />
 
   const scrollGalleryTo = (i) => {
     const el = galleryRef.current
-    if (!el?.children[i]) return
-    el.scrollTo({ left: el.children[i].offsetLeft, behavior: 'smooth' })
+    if (!el) return
+    el.scrollTo({ left: i * el.clientWidth, behavior: 'smooth' })
   }
 
   const meta = [
@@ -102,7 +97,7 @@ export default function CaseStudy() {
     <div className="min-h-screen bg-page text-ink">
       <nav
         aria-label="Case study sections"
-        className="fixed z-50 left-0 right-0 top-0 flex items-center justify-center gap-5 border-b border-line/70 bg-page/90 backdrop-blur-sm px-4 py-3 md:inset-auto md:left-6 md:top-1/2 md:-translate-y-1/2 md:flex-col md:items-start md:gap-4 md:border-0 md:bg-transparent md:p-0 md:backdrop-blur-none lg:left-10"
+        className="fixed z-50 left-0 right-0 top-0 flex items-center justify-center gap-5 border-b border-line/70 bg-page/90 backdrop-blur-sm px-4 py-3 md:inset-auto md:left-6 md:top-1/2 md:-translate-y-1/2 md:flex-col md:items-start md:gap-3 md:border-0 md:bg-transparent md:p-0 md:backdrop-blur-none lg:left-10"
       >
         {sections.map((s) => {
           const isActive = active === s.id
@@ -110,11 +105,12 @@ export default function CaseStudy() {
             <a
               key={s.id}
               href={`#cs-${s.id}`}
-              className={`flex items-baseline gap-2 text-[12px] tracking-[0.08em] uppercase transition-opacity duration-200 ${
+              aria-current={isActive ? 'true' : undefined}
+              className={`flex items-baseline gap-2 text-[13px] tracking-[-0.01em] transition-opacity duration-200 ${
                 isActive ? 'text-ink opacity-100' : 'text-ink opacity-35 hover:opacity-70'
               }`}
             >
-              <span className="tabular-nums text-[10px] opacity-60">{s.index}</span>
+              <span className="tabular-nums text-[11px] text-mute">{s.index}</span>
               <span className="hidden sm:inline">{s.label}</span>
               <span className="sm:hidden">{s.label.slice(0, 1)}</span>
             </a>
@@ -135,6 +131,64 @@ export default function CaseStudy() {
         <h1 className="text-[1.4rem] sm:text-[1.5rem] font-normal tracking-[-0.02em] text-ink">
           {project.title}
         </h1>
+
+        {galleryCount > 0 && (
+          <div className="mt-8">
+            {galleryCount > 1 && (
+              <div className="mb-4 flex items-center justify-end gap-3">
+                <p className="text-[13px] tabular-nums text-mute" aria-live="polite">
+                  <span className="text-ink">{String(galleryIndex + 1).padStart(2, '0')}</span>
+                  <span className="mx-1.5 text-ink/25">/</span>
+                  <span>{String(galleryCount).padStart(2, '0')}</span>
+                </p>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    aria-label="Previous image"
+                    disabled={galleryIndex === 0}
+                    onClick={() => scrollGalleryTo(galleryIndex - 1)}
+                    className="flex h-8 w-8 items-center justify-center rounded-full border border-line text-ink transition-opacity disabled:opacity-25 hover:bg-soft"
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
+                      <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    aria-label="Next image"
+                    disabled={galleryIndex >= galleryCount - 1}
+                    onClick={() => scrollGalleryTo(galleryIndex + 1)}
+                    className="flex h-8 w-8 items-center justify-center rounded-full border border-line text-ink transition-opacity disabled:opacity-25 hover:bg-soft"
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
+                      <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            )}
+
+            <div
+              ref={galleryRef}
+              className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+            >
+              {project.gallery.map((src, i) => (
+                <div
+                  key={src}
+                  className="snap-start shrink-0 w-full overflow-hidden rounded-xl bg-soft"
+                >
+                  <img
+                    src={src}
+                    alt=""
+                    className="w-full aspect-video object-cover object-top"
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                    draggable={false}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         <dl className="mt-8 space-y-2.5">
           {meta.map((item) => (
@@ -169,46 +223,6 @@ export default function CaseStudy() {
             ))}
           </div>
         </section>
-
-        {project.gallery?.length > 0 && (
-          <div className="mt-10">
-            <div
-              ref={galleryRef}
-              className="flex gap-3 overflow-x-auto snap-x snap-mandatory scrollbar-hide"
-            >
-              {project.gallery.map((src, i) => (
-                <div
-                  key={src}
-                  className="snap-start shrink-0 w-full sm:w-[92%] overflow-hidden rounded-xl bg-soft"
-                >
-                  <img
-                    src={src}
-                    alt=""
-                    className="w-full aspect-[16/10] object-cover"
-                    loading={i === 0 ? 'eager' : 'lazy'}
-                    draggable={false}
-                  />
-                </div>
-              ))}
-            </div>
-
-            {project.gallery.length > 1 && (
-              <div className="mt-4 flex justify-center gap-1.5">
-                {project.gallery.map((src, i) => (
-                  <button
-                    key={src}
-                    type="button"
-                    aria-label={`Go to image ${i + 1}`}
-                    onClick={() => scrollGalleryTo(i)}
-                    className={`h-1.5 w-1.5 rounded-full transition-colors ${
-                      galleryIndex === i ? 'bg-ink' : 'bg-ink/20'
-                    }`}
-                  />
-                ))}
-              </div>
-            )}
-          </div>
-        )}
 
         <section id="cs-outcome" className="pt-16 scroll-mt-20 md:scroll-mt-10">
           <h2 className="text-[1.1rem] font-normal tracking-[-0.02em] text-ink mb-4">Outcome</h2>

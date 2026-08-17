@@ -3,6 +3,7 @@ import About from './About'
 import Work from './Work'
 import Experience from './Experience'
 import Tools from './Tools'
+import Playground from './Playground'
 import SideNav from './SideNav'
 import { FloatingControls } from './FloatingControls'
 
@@ -17,12 +18,13 @@ export default function Home() {
 
   return (
     <>
-      <main className="min-h-screen bg-page text-ink">
+      <main className="min-h-screen bg-page text-ink overflow-x-clip">
         <div className="mx-auto w-full max-w-content px-6 sm:px-8 pt-16 md:pt-16 md:pl-28 lg:pl-32">
           <About />
           <Work />
           <Experience />
           <Tools />
+          <Playground />
         </div>
       </main>
       <SideNav />
