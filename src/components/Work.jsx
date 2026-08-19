@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { motion } from 'motion/react'
 import { IconArrowUpRight } from './icons'
+import { ProjectLogo } from './ProjectLogo'
 import { projects } from '../data/projects'
+import { fadeUp, viewportOnce } from '../motion'
 
 export default function Work() {
   const trackRef = useRef(null)
@@ -35,7 +38,14 @@ export default function Work() {
   }
 
   return (
-    <section id="work" className="pt-8">
+    <motion.section
+      id="work"
+      className="pt-8"
+      initial="hidden"
+      whileInView="show"
+      viewport={viewportOnce}
+      variants={fadeUp}
+    >
       <div className="mb-8 flex items-end justify-between gap-4">
         <h2 className="text-[1.15rem] font-normal tracking-[-0.02em] text-ink">Work</h2>
         {total > 1 && (
@@ -46,28 +56,30 @@ export default function Work() {
               <span>{String(total).padStart(2, '0')}</span>
             </p>
             <div className="flex items-center gap-2">
-              <button
+              <motion.button
                 type="button"
                 aria-label="Previous project"
                 disabled={index === 0}
                 onClick={() => scrollByCard(-1)}
+                whileTap={{ scale: 0.92 }}
                 className="flex h-8 w-8 items-center justify-center rounded-full border border-line text-ink transition-opacity disabled:opacity-25 hover:bg-soft"
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
                   <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-              </button>
-              <button
+              </motion.button>
+              <motion.button
                 type="button"
                 aria-label="Next project"
                 disabled={index >= total - 1}
                 onClick={() => scrollByCard(1)}
+                whileTap={{ scale: 0.92 }}
                 className="flex h-8 w-8 items-center justify-center rounded-full border border-line text-ink transition-opacity disabled:opacity-25 hover:bg-soft"
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
                   <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-              </button>
+              </motion.button>
             </div>
           </div>
         )}
@@ -85,12 +97,10 @@ export default function Work() {
           >
             <Link to={`/work/${project.slug}`} className="group block h-full">
               {project.logo && (
-                <img
-                  src={project.logo}
-                  alt=""
-                  className={`${project.logoClass || 'h-6'} w-auto object-contain object-left mb-4 opacity-90`}
+                <ProjectLogo
+                  project={project}
+                  className="mb-4 opacity-90"
                   loading="lazy"
-                  draggable={false}
                 />
               )}
 
@@ -103,15 +113,21 @@ export default function Work() {
 
               <span className="mt-4 inline-flex items-center gap-1 text-[13px] text-ink">
                 Read case study
-                <IconArrowUpRight
-                  size={13}
-                  className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                />
+                <motion.span
+                  className="inline-flex"
+                  initial={false}
+                  whileHover={{ x: 2, y: -2 }}
+                >
+                  <IconArrowUpRight
+                    size={13}
+                    className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  />
+                </motion.span>
               </span>
             </Link>
           </li>
         ))}
       </ul>
-    </section>
+    </motion.section>
   )
 }

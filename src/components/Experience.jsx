@@ -1,14 +1,31 @@
+import { motion } from 'motion/react'
 import { experiences } from '../data/projects'
+import { fadeUp, stagger, viewportOnce } from '../motion'
 
 export default function Experience() {
   return (
     <section id="experience" className="pt-20">
-      <h2 className="text-[1.15rem] font-normal tracking-[-0.02em] text-ink mb-8">Experience</h2>
+      <motion.h2
+        className="text-[1.15rem] font-normal tracking-[-0.02em] text-ink mb-8"
+        initial="hidden"
+        whileInView="show"
+        viewport={viewportOnce}
+        variants={fadeUp}
+      >
+        Experience
+      </motion.h2>
 
-      <ul className="space-y-5">
+      <motion.ul
+        className="space-y-5"
+        initial="hidden"
+        whileInView="show"
+        viewport={viewportOnce}
+        variants={stagger}
+      >
         {experiences.map((exp) => (
-          <li
+          <motion.li
             key={`${exp.company}-${exp.period}`}
+            variants={fadeUp}
             className="grid grid-cols-[6.5rem_1fr] sm:grid-cols-[7.5rem_1fr] gap-3 items-start"
           >
             <span className="text-[14px] text-mute tabular-nums pt-0.5">{exp.period}</span>
@@ -28,13 +45,16 @@ export default function Experience() {
                   exp.company
                 )}
               </p>
+              {exp.summary && (
+                <p className="mt-1 text-[13px] text-mute">{exp.summary}</p>
+              )}
               {exp.location && (
-                <p className="mt-1 text-[13px] text-mute">{exp.location}</p>
+                <p className="mt-0.5 text-[13px] text-mute">{exp.location}</p>
               )}
             </div>
-          </li>
+          </motion.li>
         ))}
-      </ul>
+      </motion.ul>
     </section>
   )
 }

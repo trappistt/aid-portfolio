@@ -7,64 +7,97 @@ export const projects = [
     logo: '/projects/scotiabank/logo.svg',
     logoClass: 'h-6',
     summary:
-      'Redesigning Scotiabank’s business banking website. 84 pages across 8 categories, aligned to the new brand and design system.',
+      'Product lead for Scotiabank’s business banking website. 84 pages across 8 categories, rebuilt around how customers find and choose products.',
     website: 'https://www.scotiabank.com/ca/en/business-banking/banking-solutions/credit-cards/scotiabank-passport-visa-infinite-business-card.html',
     period: '2026',
-    type: 'Product & Web Design',
-    services: 'Design, Content, Delivery',
+    type: 'Product',
+    services: 'Discovery, IA, Delivery',
     about: [
-      'Led the redesign of Scotiabank’s business banking website to deliver a more modern, intuitive experience for business customers. The work was informed by user research, business requirements, and competitive analysis.',
-      'We restructured the information hierarchy and redesigned navigation, category pages, and product pages to align with Scotiabank’s new brand and design system, improving clarity and findability across the site.',
+      'Business customers were struggling to find the right products on a site that no longer matched Scotiabank’s brand or how people shop for banking. I led the product work to rebuild it from research, business requirements, and competitive analysis.',
+      'We redefined the information architecture and the navigation, category, and product page model so 84 pages across 8 categories were easier to find, compare, and act on.',
     ],
     outcome: [
-      'Updated 84 pages across 8 product categories, bringing the business banking site in line with the new brand and design system.',
-      'Established a clearer information hierarchy and navigation model that makes products and services easier to discover.',
-      'Partnered with development to ship redesigned category and product page patterns at scale.',
+      'Shipped 84 pages across 8 product categories, aligned to the new brand and design system.',
+      'A clearer information architecture and navigation model that makes products and services easier to discover.',
+      'Partnered with design and engineering to ship category and product page patterns at scale.',
     ],
-    roleIntro: 'My role spanned design, content, and delivery:',
+    roleIntro: 'I owned the product from problem through launch:',
     role: [
-      'Design support for navigation, category, and product page experiences',
-      'Content authoring and page structuring across the business banking site',
-      'Timeline ownership and delivery coordination',
-      'Close collaboration with development through build and launch',
+      'Framed the problem, ran research, and set the information architecture',
+      'Prioritized page types and content structure across the business banking site',
+      'Owned the timeline and aligned stakeholders through delivery',
+      'Worked with engineering to ship and iterate after launch',
     ],
     gallery: [
-      '/projects/scotiabank/02.png',
-      '/projects/scotiabank/03.png',
-      '/projects/scotiabank/04.png',
+      {
+        src: '/projects/scotiabank/02.png',
+        caption:
+          'Business credit card product page. Offer, apply CTA, and card details at a glance.',
+      },
+      {
+        src: '/projects/scotiabank/03.png',
+        caption:
+          'Credit cards mega-menu. Products, services, resources, and tools in one place.',
+      },
+      {
+        src: '/projects/scotiabank/04.png',
+        caption:
+          'Mobile card highlights. Benefits and built-in features on the product page.',
+      },
     ],
   },
   {
     id: 2,
     slug: 'ikea',
     title: 'IKEA Website & App',
-    year: '2019-2025',
+    year: '2019-2026',
     logo: '/projects/ikea/logo.svg',
     logoClass: 'h-9',
     summary:
-      'Seven years of digital transformation across IKEA web and app: new iOS app, product pages, navigation, and a more personalized homepage.',
+      'Seven years owning IKEA commerce products across web and app: navigation, product listing, conversion, and a more personal homepage.',
     website: 'https://www.ikea.com/ca/en/',
     appStore: 'https://apps.apple.com/ca/app/ikea/id1452164827',
-    period: '2019 - 2025',
+    period: '2019 - 2026',
     type: 'Product & Commerce',
-    services: 'Design, Development, Project Management',
+    services: 'Strategy, Roadmap, Delivery',
     about: [
-      'Over seven years at IKEA, I helped drive digital transformation across web and app in a range of roles. Work spanned commerce journeys that connect discovery, merchandising, and conversion.',
-      'Notable projects include launching a new iOS app, redesigning product pages to improve conversion and add-to-cart, redesigning navigation, and reinventing the homepage into a more personalized experience.',
+      'IKEA’s digital commerce stack was complex, multi-market, and easy to break. I owned products across web, app, and social with a clear job: improve discovery, merchandising, and conversion without losing the rest of the journey.',
+      'Work included a new iOS app, a data-driven product listing redesign, a new navigation model, and a homepage rebuilt for returning and new customers. Research and performance data decided what shipped. Design and engineering got it live.',
     ],
     outcome: [
-      'Shipped a new iOS app as part of IKEA’s broader digital platform evolution.',
-      'Redesigned product pages to strengthen conversion and add-to-cart performance.',
-      'Redesigned navigation and reinvented the homepage into a more personalized experience for returning and new customers.',
+      'Product listing pages: 34% increase in add-to-cart, 10% lift in engagement, and lower bounce.',
+      'New site navigation: 23% increase in engagement.',
+      'Shipped a new iOS app and a more personalized homepage as part of IKEA’s digital platform evolution.',
     ],
-    roleIntro: 'As commerce and design lead, I led multiple projects across:',
+    roleIntro: 'As commerce product lead, I owned the work across:',
     role: [
-      'Product and experience design for web and app',
-      'Partnership with development through delivery',
-      'Project management and timeline ownership',
-      'AI-assisted workflows to accelerate design and delivery',
+      'Product strategy and roadmap for web and app commerce journeys',
+      'Prioritization from research, merchandising, and conversion data',
+      'Cross-functional delivery with design, engineering, and commercial teams',
+      'AI workflows to speed content and delivery without breaking brand voice',
     ],
-    gallery: [],
+    gallery: [
+      {
+        src: '/projects/ikea/ikea.jpeg',
+        caption:
+          'Comfort recommendation results. Personalized mattress picks based on sleep profile.',
+      },
+      {
+        src: '/projects/ikea/ikea-2.jpeg',
+        caption:
+          'IKEA iOS app. In-store visit tools: scan, store status, and local offers.',
+      },
+      {
+        src: '/projects/ikea/ikea-3.png',
+        caption:
+          'Shoppable merchandising on the homepage. Lifestyle content with hotspots into product.',
+      },
+      {
+        src: '/projects/ikea/ikea-4.png',
+        caption:
+          'Trending articles module. Inspiration content that keeps people moving through the site.',
+      },
+    ],
   },
   {
     id: 3,
@@ -74,32 +107,44 @@ export const projects = [
     logo: '/projects/gravite-lab/logo.svg',
     logoClass: 'h-7',
     summary:
-      'Brand and web design for Gravite Lab, a Toronto AI automation agency. Website, design system, and a featured project on Contra.',
+      'Defined the offer and shipped the website for Gravite Lab, a Toronto AI automation agency. Brand, information architecture, and a design system they could grow from.',
     website: 'https://contra.com/alireza_iman_hic9mfbp/work?r=alireza_iman_hic9mfbp',
     period: '2025',
-    type: 'Brand & Web Design',
-    services: 'Brand, Website, Design System',
+    type: 'Brand & Product',
+    services: 'Positioning, IA, Launch',
     about: [
-      'Gravite Lab is an AI automation agency based in Toronto. I partnered with them as brand and web designer to define a clear visual identity and a site that communicates their offer with clarity.',
-      'The work covered brand direction, website design, and a design system so the team could grow the experience consistently across pages and touchpoints.',
+      'Gravite Lab is an AI automation agency in Toronto that needed a clearer offer and a site that made it obvious who they help. I partnered with them to define the product story and ship the first public experience.',
+      'The work covered positioning, information architecture, brand direction, and a design system so the team could grow the site without starting over on every page.',
     ],
     outcome: [
-      'Delivered a cohesive brand and website for Gravite Lab’s AI automation practice.',
+      'Shipped a cohesive brand and website that makes Gravite Lab’s offer easy to understand.',
       'Established a design system to keep product and marketing surfaces aligned as the agency scales.',
       'The project was featured on Contra, extending visibility across the independent creative network.',
     ],
-    roleIntro: 'I led brand and web design end to end:',
+    roleIntro: 'I led the work end to end:',
     role: [
+      'Positioning and information architecture',
       'Brand identity and visual direction',
-      'Website design and information architecture',
-      'Design system foundations and components',
+      'Website and design system the team could grow from',
       'Collaboration through launch and iteration',
     ],
     gallery: [
-      '/projects/gravite-lab/gl.png',
-      '/projects/gravite-lab/gl-1.png',
-      '/projects/gravite-lab/gl-2.png',
-      '/projects/gravite-lab/gl-3.png',
+      {
+        src: '/projects/gravite-lab/gl.png',
+        caption: 'Brand mark and wordmark for Gravite Lab.',
+      },
+      {
+        src: '/projects/gravite-lab/gl-1.png',
+        caption: 'Homepage. Offer, proof, and a path to book a call.',
+      },
+      {
+        src: '/projects/gravite-lab/gl-2.png',
+        caption: 'Product story visual. How the AI agent sits in a content workflow.',
+      },
+      {
+        src: '/projects/gravite-lab/gl-3.png',
+        caption: 'App icon in context.',
+      },
     ],
   },
 ]
@@ -111,13 +156,15 @@ export const experiences = [
     company: 'Scotiabank',
     companyUrl: 'https://www.scotiabank.com',
     location: 'Toronto, Canada',
+    summary: 'Product for business banking digital experience.',
   },
   {
-    period: '2022 - 2025',
+    period: '2022 - 2026',
     role: 'Digital Commerce Lead',
     company: 'IKEA',
     companyUrl: 'https://www.ikea.com/ca/en/',
     location: 'Toronto, Canada',
+    summary: 'Owned commerce products across web, app, and merchandising.',
   },
   {
     period: '2019 - 2021',
@@ -125,17 +172,18 @@ export const experiences = [
     company: 'IKEA',
     companyUrl: 'https://www.ikea.com/ca/en/',
     location: 'Toronto, Canada',
+    summary: 'Experience design for IKEA’s digital and retail journeys.',
   },
 ]
 
 export const tools = [
   { id: 'figma', name: 'Figma', url: 'https://www.figma.com' },
-  { id: 'react', name: 'React', url: 'https://react.dev' },
-  { id: 'cursor', name: 'Cursor', url: 'https://cursor.com' },
-  { id: 'framer', name: 'Framer', url: 'https://www.framer.com' },
-  { id: 'claude', name: 'Claude', url: 'https://claude.ai' },
-  { id: 'mobbin', name: 'Mobbin', url: 'https://mobbin.com' },
   { id: 'miro', name: 'Miro', url: 'https://miro.com' },
+  { id: 'cursor', name: 'Cursor', url: 'https://cursor.com' },
+  { id: 'claude', name: 'Claude', url: 'https://claude.ai' },
+  { id: 'react', name: 'React', url: 'https://react.dev' },
+  { id: 'framer', name: 'Framer', url: 'https://www.framer.com' },
+  { id: 'mobbin', name: 'Mobbin', url: 'https://mobbin.com' },
   { id: 'spline', name: 'Spline', url: 'https://spline.design' },
   { id: 'arena', name: 'Are.na', url: 'https://www.are.na' },
   { id: 'paper', name: 'Paper', url: 'https://paper.design' },
@@ -143,12 +191,60 @@ export const tools = [
   { id: 'adobe', name: 'Adobe Creative Cloud', url: 'https://www.adobe.com/creativecloud.html' },
 ]
 
-export const playground = [
-  { id: 1, src: '', alt: '' },
-  { id: 2, src: '', alt: '' },
-  { id: 3, src: '', alt: '' },
-  { id: 4, src: '', alt: '' },
-  { id: 5, src: '', alt: '' },
+export const shipped = [
+  {
+    id: 'behere',
+    title: 'Be Here',
+    src: '/playground/behere-streaming.png',
+    caption: 'Creator dashboard for scheduling streams. List view, auto-start, and the path to go live.',
+    url: 'https://apps.apple.com/ca/app/be-here/id6753854189',
+  },
+  {
+    id: 'grand-lighting',
+    title: 'Grand Lighting',
+    src: '/playground/gl-navigation.png',
+    caption: 'Search and filter for heaters. Categories, brands, price, and a product grid built for findability.',
+    url: 'https://www.grandlighting.ca/',
+  },
+  {
+    id: 'gravite-lab',
+    title: 'Gravite Lab',
+    src: '/projects/gravite-lab/gl-1.png',
+    caption: 'Homepage for Gravite Lab. The offer, the workflow, and a path to book a call.',
+    url: 'https://www.gravitelab.com/',
+  },
+  {
+    id: 'roamer',
+    title: 'Roamer',
+    src: '/playground/roamer-ugc.png',
+    caption: 'Destinations with video. Where it is quietly brilliant right now, from Los Cabos to Montreal.',
+    url: 'https://useroamer.com/',
+  },
+  {
+    id: 'taskrabbit',
+    title: 'TaskRabbit',
+    src: '/playground/taskrabbit-assembly-order.png',
+    caption: 'IKEA assembly order flow. Find the item, get assembly, and checkout with Taskers.',
+    url: 'https://www.taskrabbit.ca/',
+  },
+  {
+    id: 'shophere',
+    title: 'ShopHere',
+    src: '/playground/shophere-app.png',
+    caption: 'ShopHere app. Social events and a marketplace in one place.',
+  },
+  {
+    id: 'structlab',
+    title: 'Structlab',
+    src: '/playground/structlab-hp.png',
+    caption: 'Structlab homepage. Architecture studio landing with a clear path into projects.',
+  },
+  {
+    id: 'supp',
+    title: 'Supp',
+    src: '/playground/supp-onboarding.png',
+    caption: 'Supp sign in. Demands, offers, and marketplace insights behind a simple welcome back.',
+  },
 ]
 
 export const EMAIL = 'alirezaiman@yahoo.com'

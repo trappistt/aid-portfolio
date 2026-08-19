@@ -3,9 +3,16 @@ import About from './About'
 import Work from './Work'
 import Experience from './Experience'
 import Tools from './Tools'
-import Playground from './Playground'
-import SideNav from './SideNav'
+import Shipped from './Shipped'
 import { FloatingControls } from './FloatingControls'
+
+const navLinks = [
+  { id: 'about', label: 'About' },
+  { id: 'work', label: 'Work' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'tools', label: 'Tools' },
+  { id: 'shipped', label: 'Shipped' },
+]
 
 export default function Home() {
   const [showTop, setShowTop] = useState(false)
@@ -19,16 +26,15 @@ export default function Home() {
   return (
     <>
       <main className="min-h-screen bg-page text-ink overflow-x-clip">
-        <div className="mx-auto w-full max-w-content px-6 sm:px-8 pt-16 md:pt-16 md:pl-28 lg:pl-32">
+        <div className="mx-auto w-full max-w-content px-6 sm:px-8 pt-16">
           <About />
           <Work />
           <Experience />
           <Tools />
-          <Playground />
+          <Shipped />
         </div>
       </main>
-      <SideNav />
-      <FloatingControls showTop={showTop} />
+      <FloatingControls showTop={showTop} links={navLinks} />
     </>
   )
 }

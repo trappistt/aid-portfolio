@@ -1,3 +1,4 @@
+import { MotionConfig } from 'motion/react'
 import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { Analytics } from '@vercel/analytics/react'
@@ -26,14 +27,16 @@ function ScrollToHash() {
 export default function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter>
-        <ScrollToHash />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/work/:slug" element={<CaseStudy />} />
-        </Routes>
-        <Analytics />
-      </BrowserRouter>
+      <MotionConfig reducedMotion="user">
+        <BrowserRouter>
+          <ScrollToHash />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/work/:slug" element={<CaseStudy />} />
+          </Routes>
+          <Analytics />
+        </BrowserRouter>
+      </MotionConfig>
     </ThemeProvider>
   )
 }

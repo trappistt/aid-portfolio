@@ -1,56 +1,46 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Navigate, useParams } from 'react-router-dom'
+import { motion } from 'motion/react'
 import { FloatingControls } from './FloatingControls'
+import { GalleryFrame, ImagePreview, NavArrow } from './ImagePreview'
+import { ProjectLogo } from './ProjectLogo'
 import { getProject } from '../data/projects'
+import { fadeUp, stagger, viewportOnce } from '../motion'
 
 const sections = [
-  { id: 'about', label: 'About', index: '01' },
-  { id: 'outcome', label: 'Outcome', index: '02' },
-  { id: 'role', label: 'Role', index: '03' },
+  { id: 'cs-about', label: 'Problem' },
+  { id: 'cs-outcome', label: 'Outcome' },
+  { id: 'cs-role', label: 'Role' },
 ]
+
+function galleryItems(project) {
+  return (project?.gallery ?? []).map((item) =>
+    typeof item === 'string' ? { src: item, caption: '' } : item
+  )
+}
 
 export default function CaseStudy() {
   const { slug } = useParams()
   const project = getProject(slug)
-  const [active, setActive] = useState('about')
+  const items = galleryItems(project)
   const [galleryIndex, setGalleryIndex] = useState(0)
+  const [previewIndex, setPreviewIndex] = useState(null)
   const [showTop, setShowTop] = useState(false)
   const galleryRef = useRef(null)
-  const galleryCount = project?.gallery?.length ?? 0
+  const galleryCount = items.length
 
   useEffect(() => {
     window.scrollTo(0, 0)
     setGalleryIndex(0)
-    setActive('about')
+    setPreviewIndex(null)
   }, [slug])
 
   useEffect(() => {
     if (!project) return
 
-    const els = sections
-      .map((s) => document.getElementById(`cs-${s.id}`))
-      .filter(Boolean)
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id.replace('cs-', ''))
-          }
-        })
-      },
-      { rootMargin: '-30% 0px -55% 0px', threshold: 0 }
-    )
-
-    els.forEach((el) => observer.observe(el))
-
     const onScroll = () => setShowTop(window.scrollY > 280)
     window.addEventListener('scroll', onScroll, { passive: true })
-
-    return () => {
-      observer.disconnect()
-      window.removeEventListener('scroll', onScroll)
-    }
+    return () => window.removeEventListener('scroll', onScroll)
   }, [project])
 
   const syncGallery = useCallback(() => {
@@ -73,18 +63,24 @@ export default function CaseStudy() {
     }
   }, [syncGallery, slug])
 
-  if (!project) return <Navigate to="/" replace />
-
   const scrollGalleryTo = (i) => {
     const el = galleryRef.current
     if (!el) return
     el.scrollTo({ left: i * el.clientWidth, behavior: 'smooth' })
   }
 
+  const closePreview = () => setPreviewIndex(null)
+  const showPreview = (i) => {
+    setPreviewIndex(i)
+    scrollGalleryTo(i)
+  }
+
+  if (!project) return <Navigate to="/" replace />
+
   const meta = [
     { label: 'Period', value: project.period },
     { label: 'Type', value: project.type },
-    { label: 'Services', value: project.services },
+    { label: 'Focus', value: project.services },
     ...(project.website
       ? [{ label: 'Website', value: project.website, href: project.website }]
       : []),
@@ -95,45 +91,29 @@ export default function CaseStudy() {
 
   return (
     <div className="min-h-screen bg-page text-ink">
-      <nav
-        aria-label="Case study sections"
-        className="fixed z-50 left-0 right-0 top-0 flex items-center justify-center gap-5 border-b border-line/70 bg-page/90 backdrop-blur-sm px-4 py-3 md:inset-auto md:left-6 md:top-1/2 md:-translate-y-1/2 md:flex-col md:items-start md:gap-3 md:border-0 md:bg-transparent md:p-0 md:backdrop-blur-none lg:left-10"
+      <motion.div
+        className="mx-auto max-w-content px-6 sm:px-8 pt-16"
+        initial="hidden"
+        animate="show"
+        variants={stagger}
       >
-        {sections.map((s) => {
-          const isActive = active === s.id
-          return (
-            <a
-              key={s.id}
-              href={`#cs-${s.id}`}
-              aria-current={isActive ? 'true' : undefined}
-              className={`flex items-baseline gap-2 text-[13px] tracking-[-0.01em] transition-opacity duration-200 ${
-                isActive ? 'text-ink opacity-100' : 'text-ink opacity-35 hover:opacity-70'
-              }`}
-            >
-              <span className="tabular-nums text-[11px] text-mute">{s.index}</span>
-              <span className="hidden sm:inline">{s.label}</span>
-              <span className="sm:hidden">{s.label.slice(0, 1)}</span>
-            </a>
-          )
-        })}
-      </nav>
-
-      <div className="mx-auto max-w-content px-6 sm:px-8 pt-16 pb-28 md:pl-28 lg:pl-32">
         {project.logo && (
-          <img
-            src={project.logo}
-            alt=""
-            className={`${project.logoClass || 'h-6'} w-auto object-contain object-left mb-5 opacity-90`}
-            loading="eager"
-            draggable={false}
-          />
+          <motion.div variants={fadeUp}>
+            <ProjectLogo
+              project={project}
+              className="mb-5 opacity-90"
+            />
+          </motion.div>
         )}
-        <h1 className="text-[1.4rem] sm:text-[1.5rem] font-normal tracking-[-0.02em] text-ink">
+        <motion.h1
+          variants={fadeUp}
+          className="text-[1.4rem] sm:text-[1.5rem] font-normal tracking-[-0.02em] text-ink"
+        >
           {project.title}
-        </h1>
+        </motion.h1>
 
         {galleryCount > 0 && (
-          <div className="mt-8">
+          <motion.div variants={fadeUp} className="mt-8">
             {galleryCount > 1 && (
               <div className="mb-4 flex items-center justify-end gap-3">
                 <p className="text-[13px] tabular-nums text-mute" aria-live="polite">
@@ -142,28 +122,18 @@ export default function CaseStudy() {
                   <span>{String(galleryCount).padStart(2, '0')}</span>
                 </p>
                 <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    aria-label="Previous image"
+                  <NavArrow
+                    label="Previous image"
                     disabled={galleryIndex === 0}
                     onClick={() => scrollGalleryTo(galleryIndex - 1)}
-                    className="flex h-8 w-8 items-center justify-center rounded-full border border-line text-ink transition-opacity disabled:opacity-25 hover:bg-soft"
-                  >
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
-                      <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </button>
-                  <button
-                    type="button"
-                    aria-label="Next image"
+                    direction="prev"
+                  />
+                  <NavArrow
+                    label="Next image"
                     disabled={galleryIndex >= galleryCount - 1}
                     onClick={() => scrollGalleryTo(galleryIndex + 1)}
-                    className="flex h-8 w-8 items-center justify-center rounded-full border border-line text-ink transition-opacity disabled:opacity-25 hover:bg-soft"
-                  >
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
-                      <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </button>
+                    direction="next"
+                  />
                 </div>
               </div>
             )}
@@ -172,25 +142,22 @@ export default function CaseStudy() {
               ref={galleryRef}
               className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide"
             >
-              {project.gallery.map((src, i) => (
-                <div
-                  key={src}
-                  className="snap-start shrink-0 w-full overflow-hidden rounded-xl bg-soft"
+              {items.map((item, i) => (
+                <button
+                  key={item.src}
+                  type="button"
+                  onClick={() => showPreview(i)}
+                  className="snap-start shrink-0 w-full text-left"
+                  aria-label="Open image preview"
                 >
-                  <img
-                    src={src}
-                    alt=""
-                    className="w-full aspect-video object-cover object-top"
-                    loading={i === 0 ? 'eager' : 'lazy'}
-                    draggable={false}
-                  />
-                </div>
+                  <GalleryFrame src={item.src} alt={item.caption} eager={i === 0} />
+                </button>
               ))}
             </div>
-          </div>
+          </motion.div>
         )}
 
-        <dl className="mt-8 space-y-2.5">
+        <motion.dl variants={fadeUp} className="mt-8 space-y-2.5">
           {meta.map((item) => (
             <div
               key={item.label}
@@ -213,18 +180,34 @@ export default function CaseStudy() {
               </dd>
             </div>
           ))}
-        </dl>
+        </motion.dl>
+      </motion.div>
 
-        <section id="cs-about" className="pt-14 scroll-mt-20 md:scroll-mt-10">
-          <h2 className="text-[1.1rem] font-normal tracking-[-0.02em] text-ink mb-4">About</h2>
+      <div className="mx-auto max-w-content px-6 sm:px-8 pb-28">
+        <motion.section
+          id="cs-about"
+          className="pt-14"
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportOnce}
+          variants={fadeUp}
+        >
+          <h2 className="text-[1.1rem] font-normal tracking-[-0.02em] text-ink mb-4">Problem</h2>
           <div className="space-y-3 text-[15px] leading-[1.6] text-ink max-w-xl">
             {project.about.map((p) => (
               <p key={p}>{p}</p>
             ))}
           </div>
-        </section>
+        </motion.section>
 
-        <section id="cs-outcome" className="pt-16 scroll-mt-20 md:scroll-mt-10">
+        <motion.section
+          id="cs-outcome"
+          className="pt-16"
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportOnce}
+          variants={fadeUp}
+        >
           <h2 className="text-[1.1rem] font-normal tracking-[-0.02em] text-ink mb-4">Outcome</h2>
           <ul className="space-y-3 text-[15px] leading-[1.6] text-ink max-w-xl">
             {project.outcome.map((item) => (
@@ -234,9 +217,16 @@ export default function CaseStudy() {
               </li>
             ))}
           </ul>
-        </section>
+        </motion.section>
 
-        <section id="cs-role" className="pt-16 scroll-mt-20 md:scroll-mt-10">
+        <motion.section
+          id="cs-role"
+          className="pt-16"
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportOnce}
+          variants={fadeUp}
+        >
           <h2 className="text-[1.1rem] font-normal tracking-[-0.02em] text-ink mb-4">Role</h2>
           <p className="text-[15px] leading-[1.6] text-ink mb-4">{project.roleIntro}</p>
           <ul className="space-y-2.5 text-[15px] leading-[1.6] text-ink">
@@ -247,10 +237,17 @@ export default function CaseStudy() {
               </li>
             ))}
           </ul>
-        </section>
+        </motion.section>
       </div>
 
-      <FloatingControls showIndex showTop={showTop} />
+      <ImagePreview
+        items={items}
+        index={previewIndex}
+        onClose={closePreview}
+        onIndexChange={setPreviewIndex}
+      />
+
+      <FloatingControls showIndex showTop={showTop} links={sections} />
     </div>
   )
 }
